@@ -1,4 +1,4 @@
-Summary: An extremely simple Cocoa# tutorial.  Simple form with a textbox and a button.
+#summary An extremely simple Cocoa# tutorial.  Simple form with a textbox and a button.
 
 !Assumptions
 
