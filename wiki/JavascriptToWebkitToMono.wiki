@@ -1,4 +1,4 @@
-Summary: Excerpt from the mailing list on how to make your Mono objects viewable in the global Javascript object of Webkit.
+#summary Excerpt from the mailing list on how to make your Mono objects viewable in the global Javascript object of Webkit.
 
 NOTE: You need to be running the latest build (0.9.3, in SVN) of Cocoa-Sharp, as well as the patches included here: http://lists.ximian.com/pipermail/cocoa-sharp/2006-September/000912.html
 
