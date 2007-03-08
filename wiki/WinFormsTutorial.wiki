@@ -1,4 +1,4 @@
-content from Oscar's blog http://oepapel.blogspot.com/2005/04/windowsforms-and-mac-osx.html
+#summary A step-by-step tutorial on how to get Windows.Forms based PC apps running on Mac OS/X.Content from Oscar's blog http://oepapel.blogspot.com/2005/04/windowsforms-and-mac-osx.html
 
 I decided to create a step-by-step tutorial on how to get Windows.Forms based PC apps running on Mac OS/X. As an outsider to the project, I'm going to restrict myself to public releases.
 
@@ -29,7 +29,7 @@ http://photos6.flickr.com/8569675_931c13ffb1_o.jpg
 You need to follow the instructions and complete the installation. Once you are done, you will be ready to begin writing your first Mac Windows.Forms "Hello World" program.
 
 Also be sure that you have these files with the below content. If you don't you will get a "System.TypeInitializationException" when launching the application. This is a bug with the Mono package.
-
+{{{
 /Library/Frameworks/Mono.framework/Versions/Current/lib/mono/gac/System.Drawing/1.0.5000.0__b03f5f7f11d50a3a/System.Drawing.dll.config
 
  <configuration>
@@ -43,7 +43,7 @@ Also be sure that you have these files with the below content. If you don't you 
         <dllmap dll="gdiplus" target="/Library/Frameworks/Mono.framework/Versions/Current/lib/libgdiplus.dylib" />
         <dllmap dll="libX11" target="/usr/X11R6/lib/libX11.dylib" />
  </configuration>
-
+}}}
 
 !Step 3: Creating Hello World
 
@@ -54,21 +54,21 @@ http://photos7.flickr.com/8571367_c8df4e550d_o.jpg
 This program won't win any design awards but it will create a Message Box with a text message (the ubiquitous "Hello World"), and an OK button. Make sure that when you save this file that you don't add a .txt extension to the file!
 
 We now need to compile this simple program. We need to start Terminal in order to do this. Launch Terminal and change your directory to the directory that you saved your Hello.cs file to. I saved it to a subdirectory of "Documents" so at the command prompt I typed:
-
+{{{
  cd ~/Documents/Hello
-
+}}}
 You'll need to do something similar.
 
 we can now launch the compiler. At the prompt, type:
-
+{{{
  mcs Hello.cs /r:System.Windows.Forms.dll /out:Hello.exe
-
+}}}
 If you didn't make any typing errors, you should now have Hello.exe in addition to Hello.cs.
 
 If this was a PC, we would be done now but since we are on the Mac, we need another step. We need to MacPack the exe we created so that it can play nice with the Mac's GUI. Type the following command at the same prompt you used to compile.
-
+{{{
  macpack -n:Hello -a:Hello.exe -o:. -m:1
-
+}}}
 This will create a Mac bundle that contains our sample and that can be launched by clicking on it in the finder.
 
 http://photos4.flickr.com/8576242_61e2919ede_o.jpg
