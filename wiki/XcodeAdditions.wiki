@@ -1,4 +1,4 @@
-!.NET Xcode additions
+#summary .NET Xcode additions
 
 .NET additions for Xcode are available. It took me a few days to develop these, but they are ready. At this time, you'll have to download a tarball via the CVS repository at my Novell Forge project page:
 
@@ -9,20 +9,21 @@ The most important component of these distributions is Xcode document syntax col
 The distribution(s) also include file templates for C#, Boo, Nemerle, J#, and Visual Basic. There is also a special Cocoa# application project template available complete with a ""MainMenu"".nib file. 
 
 Specification files (for syntax coloring and file formatting) go into:
-/Library/Application Support/Apple/Developer Tools/Specifications/
+ /Library/Application Support/Apple/Developer Tools/Specifications/
 
 File templates go into:
-/Library/Application Support/Apple/Developer Tools/File Templates/
+ /Library/Application Support/Apple/Developer Tools/File Templates/
 
 and Project templates:
-/Library/Application Support/Apple/Developer Tools/Project Templates/
+ /Library/Application Support/Apple/Developer Tools/Project Templates/
 
 
 
-''--- can someone rename the CVS files? Unfortunately on the Novell Forge CVS, directory names with "#" in them cannot be viewed (returns a 404). It might be a good idea to change all instances of "#" to "Sharp" or something like that. --Dave''
+ *--- can someone rename the CVS files? Unfortunately on the Novell Forge CVS, directory names with "#" in them cannot be viewed (returns a 404). It might be a good idea to change all instances of "#" to "Sharp" or something like that. --Dave''
 
-''--- The "#" seems to have been taken care of, but the directions on this page are still a bit sparse for how to enable the XCode additions (at least for a newbie to Mac development, such as myself).  There's an mpkg that claims to install the XCode additions, but after running it, I can't see any differences in XCode.  How does this work?  -- DaveMitchell''
+ *--- The "#" seems to have been taken care of, but the directions on this page are still a bit sparse for how to enable the XCode additions (at least for a newbie to Mac development, such as myself).  There's an mpkg that claims to install the XCode additions, but after running it, I can't see any differences in XCode.  How does this work?  -- DaveMitchell''
 
-''--- I have my own version of a Xcode additions. It's simple and unfinished, but you can edit, compile and run a single Csharp source. It works wit Xcode 2.2.1. I can upload it somewhere, or you can find it on my web site:  http://sweb.cz/enifthecoder/download/CsForXcode_10.zip -- enif''
+ *--- I have my own version of a Xcode additions. It's simple and unfinished, but you can edit, compile and run a single Csharp source. It works wit Xcode 2.2.1. I can upload it somewhere, or you can find it on my web site:  http://sweb.cz/enifthecoder/download/CsForXcode_10.zip -- enif''
 
-''---  Xcode additions for Cocoa# with MacOSX 10.4.7, Xcode2.2, Mono1.1.15 later , X11 , There are 3 templates... CSharp_winform14( SystemWindowsForms GUI with X11), CSharp_cmdine_Tool(Commandline )and CSharp_CocoaSharp_s9(nib file GUI with Cocoa#) Mysite:  http://brace.client.jp/DOC/csharp.html --   Tsukubado''
+ *---  Xcode additions for Cocoa# with MacOSX 10.4.7, Xcode2.2, Mono1.1.15 later , X11 , There are 3 templates... CSharp_winform14( SystemWindowsForms GUI with X11), CSharp_cmdine_Tool(Commandline )and CSharp_CocoaSharp_s9(nib file GUI with Cocoa#) Mysite:  http://brace.client.jp/DOC/csharp.html --   Tsukubado''
+
