@@ -1,14 +1,11 @@
 #summary : Apple.AppKit.NSTextField
 
 *Public Methods*
-||*Access*||*Method*||*Args*||*Return*||*Summary*||
-||Public, Static||Initialize||''None''||''System.Void''||Not Yet||
-||Public||Equals||''System.Object''||''System.Boolean''||Not Yet||
-||Public||""GetHashCode""||''None''||''System.Int32''||Not Yet||
-||Public||""GetType""||''None''||''System.Type''||Not Yet||
-||Public||""SetRow""||''System.IntPtr, System.Boolean''||''System.Void''||Not Yet||
+|| *Access* || *Method* || *Args* || *Return* || *Summary* ||
+||Public, Static||Initialize||None||System.Void||Not Yet||
+||Public||Equals||System.Object||System.Boolean||Not Yet||
+||Public||GetHashCode||None||System.Int32||Not Yet||
+||Public||GetType||None||System.Type||Not Yet||
+||Public||SetRow||System.IntPtr, System.Boolean||System.Void||Not Yet||
 
-blah
 
-||{TW25}One Quarter||
-||This is the story of a man named bill.  This is the story of a man named bill.  This is the story of a man named bill.  This is the story of a man named bill.||
