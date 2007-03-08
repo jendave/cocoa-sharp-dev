@@ -45,7 +45,7 @@ The first thing to do is create a NIB file for use with the application.  A NIB 
 !!Main.cs
 
 The main.cs file is the entry point to the app.  I split this off from the actual ""ApplicationController"" so that I can keep track of things easily.
-
+{{{
 {@
 using System;
 using System.Runtime.InteropServices;
@@ -67,13 +67,13 @@ class MainClass {
 	}
 }
 }@
-
+}}}
 The important thing to consider here is the "Application.LoadNib()" line.  Make sure it's loading the proper NIB file.
 
 !!""ApplicationController.cs""
 
 The applicationcontroller.cs is the main interface handling point.  This is where all the GUI elements are connected and defined.
-
+{{{
 {@
 using System;
 using System.IO;
@@ -105,7 +105,7 @@ public class ApplicationController : NSObject {
         	
 }
 }@
-
+}}}
 !!!Connect/Register
 
 I'm not sure what the technical explanation for this is, but this is the part that connects the variable you define to the object from the nib.  You can have interface elements that do not have a local variable in the code, but you cannot connect local variables to non existant interface elements.  Doing so will cause the app to crash on launch.  For every interface element that you want to be able to access via code, you will need to create a new variable of the proper type and make sure that you use the "[Connect]" statement above it.
@@ -123,7 +123,7 @@ In the above example you can see that I have exported "buttonClick:" to my local
 I create two more files just to kinda make my life easier.  I creat a makefile and then a command file.  I create the command file so that I don't have to keep a terminal window open all the time.
 
 !!Makefile
-
+{{{
 {@
 all: test
 
@@ -133,13 +133,13 @@ test: Main.cs
 	macpack -m:2 -n:SimpleTutorial -o:. -a:SimpleTutorial.exe -r:/Library/Frameworks/Mono.framework/
 Versions/Current/lib/libCocoaSharpGlue.dylib -r:Main.nib
 }@
-
+}}}
 I don't know much about makefiles, but the important parts in this file are anywhere the name "SimpleTutorial" is mentioned.  Change this to whatever you want your program to be named.  The -pkg option on the mcs command makes sure that it's compiled with the cocoasharp package.  ""MacPack"" is the tool that creates the app bundles for OS X.  Make sure you include any nibs/images/icons/etc as a resource by using the -r option of macpack.
 
 !!Command File
 
 This will give you a file you can just double click on to run the make file.  Create this file in text editor and save it as <something>.command
-
+{{{
 {@
 #!/bin/tcsh
 # if launched from the finder, we'll not be in the correct directory.
@@ -148,7 +148,7 @@ cd `dirname $0`
 
 make
 }@
-
+}}}
 !Finished
 
 Well, you should now be finished.  Double Click on the <somthing>.command file and you should see everything compile successfully.  If all went well you should see an OS app icon labeled SimpleTutorial. Double click on it, and you should see a new app running.
