@@ -1,4 +1,4 @@
-Summary: Interesting Articles that I found
+#summary Interesting Articles
 	* ".Net Languages":http://www.dotnetpowered.com/languages.aspx ''Ada, Basic, C, C#, C++, F#, Cobol, Delphi, Eiffel, Forth, Fortran, IL, Java, JavaScript, LISP, LOGO, Oberon, Nemerle, Perl, Pascal, PHP, Prolog, Python, Ruby, Scheme, Smalltalk, SML (Standard Meta Language)''
 	* "Getting a little closer to SOA by Fabrice Marguerie":http://www.dotnetguru.org/us/articles/SOA-Softly/SOA-Softly.html?POSTNUKESID=99de716de38983ca245c18d7e233a860
 	* "Public-Key Encryption: RSA Algorithm":http://www.profactor.at/~wstoec/rsa.html
