@@ -1,0 +1,51 @@
+Summary: Software Links collected by platform, fill free to add
+!Any Platform
+	* "Mono":http://go-mono.com
+	* "Eclipse":http://eclipse.org
+	* "Java":http://java.sun.com
+	* "C++":http://www.gotw.ca/gotw -- JustinGottschlich
+
+
+!Windows
+	* "Windows Update":http://windowsupdate.microsoft.com
+	* .Net Framework 1.1 SDK
+	* "MSDN":http://msdn.com (Microsoft Developer Network)
+	* CVS
+		* "TortoiseCVS":http://tortoisecvs.sourceforge.net/ "Downloads":http://tortoisecvs.sourceforge.net/download.shtml
+	* "SubVersion":http://subversion.tigris.org/ "Download":http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91
+	* "SharpReader":http://www.sharpreader.net/
+	* "RSSBandit":http://www.rssbandit.org/ "RSS":http://www.gotdotnet.com/Community/Workspaces/rss.aspx?id=cb8d3173-9f65-46fe-bf17-122e3703bb00&feed=news
+	* "Trillian":http://trillian.cc
+	* "iTunes":http://www.apple.com/itunes/download
+	* "FlexWiki on sf.net":https://sourceforge.net/projects/flexwiki/ , and "FlexWiki on GotDotNet":http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=6bdff8a9-294f-442e-a81f-3b2b664bc344
+	* "DasBlog":http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=77a29128-4746-4473-b676-e4f1517a1907 "dasBlog.net, blogX replacement: open-source blogging engine for asp.net":http://www.dasblog.net/documentation/default.aspx
+	* "FxCop Blog":http://blogs.msdn.com/fxcop/, "RSS":http://blogs.msdn.com/fxcop/Rss.aspx, "FxCop GotDotNet":http://www.gotdotnet.com/team/fxcop/
+	* "CodeSmith 2.5":http://www.ericjsmith.net/codesmith/
+		* CodeSmith is a FREEWARE template-based code generator that can generate code for any ASCII-based language. CodeSmith templates use a syntax nearly identical to ASP.NET syntax so that creating templates should feel immediately familiar to ASP.NET developers. Check out the "overview":http://www.ericjsmith.net/codesmith/overview.aspx for more information, visit the "download":http://www.ericjsmith.net/codesmith/download.aspx page to get the latest version, or visit the "knowledge base":http://www.ericjsmith.net/codesmith/kb/ or the "support forum":http://www.ericjsmith.net/codesmith/forum/ to get your questions answered
+
+
+!Mac OS X, By "Erik Dasque":http://primates.ximian.com/~edasque/archive/2004/Mar-09.html
+	* "Fink":http://fink.sourceforge.net/
+	* Chat : "Proteus":http://www.indigofield.com/ - supports RendezVous, Yahoo, MSN, AOL and some other craaaaap. Will support WebKit soon for serious theming 
+	* RSS viewing: the awesome "NetNewsWire":http://ranchero.com/netnewswire/ - the best I found, I wish people would include the article body all the time in their rss feed so that I don't have to go to the web site itself and see all those ads. 
+	* IRC : "Mice iRC":http://www.mice-software.com/products.php?product=7 - for some reason that works for me, it's simple and straightforward 
+	* All around best tool ever: "Launchbar":http://www.obdev.at/products/launchbar/ - this product is fantastic, I can only recommend you try it. I wish I had had the idea. 
+	* Drawing marchitecture: Omnigraffle 
+	* Taking Notes: Haven't found a note taker that I like yet but Stickies works in the mean time 
+	* Still looking for a terminal with tabs. I want one that looks like Safari, not iTerm which is weak. Maybe I can get gnome terminal to run ? 
+	* X: "OroborOSX":http://oroborosx.sourceforge.net/ - launches X11, provides nice aqua theming, launcher, copy between X11 and Aqua and interleaving of windows 
+	* CVS: "CVL":http://www.sente.ch/software/cvl/ when I feel lazy about X 
+	* Spam killing: "Popfile":http://popfile.sourceforge.net/ (at home on server) 
+	* Bittorent: "Azureus":http://azureus.sourceforge.net/ - for jam band concerts download 
+	* NNTP : "Unison":http://www.panic.com/ - best news reader I found on Mac, close to the best on all platforms IMHO 
+		* check Audion from the same company if you don't want to deal with iTunes 
+	* Search engines galore: "Watson":http://www.karelia.com/watson/ - combine it with Sherlock, it's great. 
+	* DVD grabber: "Handbrake":http://handbrake.m0k.org/download.php (GPL) to copy my DVDs onto my HD and compress them to MP4 for viewing on the plane and at the hotel 
+	* Video player: "VideoLan":http://www.videolan.org/ (GPL) - a great cross platform video player 
+	* SSH tunneling : "SSH Tunneler":http://projects.tynsoe.org/en/stm/ when I get tired of command line 
+	* And geeky tools of all geeky tools : "Geeky Tool":http://projects.tynsoe.org/en/geektool - "you know you want it!":http://projects.tynsoe.org/en/geektool/shots/shot3.jpg
+
+
+!Linux
+	* "SuSE":http://www.suse.com ftp://mirror.storagetek.com/pub/systems/suse/
+	* http://www.linuxquestions.org/
