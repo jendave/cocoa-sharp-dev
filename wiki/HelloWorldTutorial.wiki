@@ -14,7 +14,6 @@ For rapid interface development, Cocoa uses .nib files.
 !helloworld.cs
 Save the following C# code as '''helloworld.cs'''.
 {{{
-{@
 using Cocoa;
 
 class HelloWorld {
@@ -24,7 +23,6 @@ class HelloWorld {
       Application.Run();
    }
 }
-}@
 }}}
 	1. Open a text editor. In Finder, select Programs > '''TextEdit'''.
 	1. If using ""TextEdit"", select '''Format''' > '''Make Plain Text'''.
