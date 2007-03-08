@@ -1,4 +1,4 @@
-Summary: Software Links collected by platform, fill free to add
+#summary Software Links collected by platform, fill free to add
 !Any Platform
 	* "Mono":http://go-mono.com
 	* "Eclipse":http://eclipse.org
