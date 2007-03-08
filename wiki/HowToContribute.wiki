@@ -1,4 +1,4 @@
-Summary: How you can contribute to the Cocoa# project
+#summary : How you can contribute to the Cocoa# project
 
 ! HOWTO: Contribute to Cocoa#
 
