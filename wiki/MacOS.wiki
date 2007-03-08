@@ -1,4 +1,4 @@
-Summary: OS X is Apple's current operating system, a program for controlling interactions between a computer, its user(s), other computers and other devices.
+#summary OS X is Apple's current operating system, a program for controlling interactions between a computer, its user(s), other computers and other devices.
 
 Like all operating systems, OS X performs "housekeeping" functions. These store, move, alter and display different kinds of information. The information may be a document such as this article, an aria from La Traviata, a video or many other such. Although warehousing this information in easy-to-find places is fundamental, the (operating) system may start up more specific programs, such as a DVD viewer, to perform actions more specific to the document (e.g., "set subtitle language"). These specific programs in turn ask the system to perform the basic steps for them, such as retrieving the documents.
 
