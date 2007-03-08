@@ -1,0 +1,6 @@
+Summary: Miscellaneous
+CocoaSharp is admittedly light on documentation at this point. For more information about CocoaSharp, please see the following resources:
+	* Mono's "AnonCVS":http://www.mono-project.com/contributing/anoncvs.html#anon anoncvs.go-mono.com repository. The module name is cocoa-sharp.
+	* The CocoaSharp mailing list mailto:cocoa-sharp@lists.ximian.com.
+	* Xcode project by "Dru":Dru.HomePage http://www.druware.com/products/xcodetools.html
+	* "#cocoa# irc channel on irc.gnome.org":irc://irc.gnome.org/cocoa#.
