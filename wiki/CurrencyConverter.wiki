@@ -1,9 +1,4 @@
-Check out the formatting tips on the right for help formatting and making links.
-
-Use the template below:
-
-----
-
+#summary : A basic tutorial using an Apple-produced Java tutorial to learn about how to build .NET applications for Cocoa#
 Summary: A basic tutorial using an Apple-produced Java tutorial to learn about how to build .NET applications for Cocoa#
 
 When learning how to develop for Cocoa using Mono, I found this tutorial for developing Cocoa apps in Java very handy.
