@@ -1,0 +1,53 @@
+Summary: Shows how to create a minimal Cocoa# Hello World application.
+
+Learn how to write your first minimalist "Cocoa#":CocoaSharp application to get you started quickly.
+
+!helloworld.nib
+For rapid interface development, Cocoa uses .nib files.
+	1. Start '''Interface Builder'''. In Finder, select harddrive > Developer > Applications > Interface Builder
+	1. Create a new .nib file. Make sure Cocoa > '''Application''' is selected (the default), choose a language you like and click on '''New'''.
+	1. In the '''Untitled''' window, select '''Window'''.
+	1. Select '''Tools''' > '''Show Inspector''' (Or press Shift+Cmd+I).
+	1. Change the '''Window Title''' to '''Hello World'''.
+	1. Save it as '''helloworld.nib'''. Mono/Cocoa# runs only on OS X 10.3 and later, therefore '''10.2 and later format''' will do.
+
+!helloworld.cs
+Save the following C# code as '''helloworld.cs'''.
+{@
+using Cocoa;
+
+class HelloWorld {
+   static void Main() {
+      Application.Init();
+      Application.LoadNib("helloworld.nib");
+      Application.Run();
+   }
+}
+}@
+	1. Open a text editor. In Finder, select Programs > '''TextEdit'''.
+	1. If using ""TextEdit"", select '''Format''' > '''Make Plain Text'''.
+	1. Copy-and-paste the above C# code.
+	1. Save the file as '''helloworld.cs'''.
+||(i) Make sure it's actually called '''helloworld.cs''' and not '''helloworld.cs.txt'''!||
+
+!helloworld.exe
+Compile your C# source code to a CLR assembly.
+	1. Open the '''Terminal'''. In Finder, select Programs > Utilities > Terminal.
+	1. If necessary, change to the correct directory.
+	1. Type:
+{@
+mcs -pkg:cocoa-sharp -out:helloworld.exe helloworld.cs
+}@
+
+!""HelloWorld"".app
+In order to launch the application, you need to bundle the assembly and the .nib file together with a launcher and an info file. For your convenience you can use the '''macpack''' utility.
+	1. At the Terminal type:
+{@
+macpack -m:2 -n:HelloWorld -o:. -a:helloworld.exe -r:helloworld.nib
+}@
+||(i) If ""HelloWorld"".app already exists you need to remove it using rm -rf ""HelloWorld"".app.||
+
+You can now double-click on *HelloWorld* in Finder to start your Hello World application! 
+
+!Next Steps
+See the SimpleTutorial and CocoaSharpExamples.
