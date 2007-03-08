@@ -1,7 +1,7 @@
-Summary: Apple.AppKit.NSTextField
+#summary : Apple.AppKit.NSTextField
 
-!!Public Methods
-||{W75}'''Access'''||'''Method'''||'''Args'''||'''Return'''||'''Summary'''||
+*Public Methods*
+||*Access*||*Method*||*Args*||*Return*||*Summary*||
 ||Public, Static||Initialize||''None''||''System.Void''||Not Yet||
 ||Public||Equals||''System.Object''||''System.Boolean''||Not Yet||
 ||Public||""GetHashCode""||''None''||''System.Int32''||Not Yet||
