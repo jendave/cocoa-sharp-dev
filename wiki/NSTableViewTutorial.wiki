@@ -1,4 +1,4 @@
-Summary: Simple tutorial on the use of a ""DataSource"" with an ""NSTableView""
+#summary Simple tutorial on the use of a ""DataSource"" with an ""NSTableView""
 
 !Assumptions
 I will be assuming that you have read through the SimpleTutorial and know the basics of creating a Cocoa GUI and how to use Outlets and Actions.
@@ -36,7 +36,7 @@ Create the Main.cs file as normal, this file will normally never change unless y
 !!""ApplicationController.cs""
 The applicationcontroller.cs is the main interface handling point. This is where all the GUI elements are connected and defined.
 
-{@
+{{{
 using System;
 using System.IO;
 using System.Collections;
@@ -76,7 +76,7 @@ public class ApplicationController : NSObject {
 	}
         	
 }
-}@
+}}}
 
 The interesting stuff in this example is the ""FinishLoading"" event and the ""buttonClick"" event.  If you look close you can see that I am getting the ""DataSource"" from the ""NSTableView"" ""dataSource"" property.  This property is read-only.  In my ""DataSource"" implementation I defined an Add method so I can add items in this manner.  You can choose to add them in anyway you see fit, as long as the ""DataSource"" object can get the information.
 
@@ -92,7 +92,7 @@ This method is how the ""NSTableView"" knows what to display and where to displa
 
 ||(i)If you decided to use a multi-column table then you can decide what to return based on the columns identifier by using aTableColumn.identifier to see what column the table is wanting.||
 
-{@
+{{{
 using System;
 using System.Collections;
 using Apple.Foundation;
@@ -150,7 +150,7 @@ public class ItemCollection : CollectionBase
 	}
 
 }
-}@
+}}}
 
 I created an ""ItemCollection"" in the ""DataSource.cs"" file just for ease of use.  Whenever the ""NSTableView"" method ""reloadData"" is called the table will excute the ""objectValueForTableColumn"" method to retrieve the data.  So like I said before, if you have lots of data this needs to be fast!!.
 
@@ -163,5 +163,4 @@ Create these as normal
 I hope this helps somebody.  It took me weeks to figure out how to get this to work.  I finally found an old example on the mailing list archives that used an ""NSOutlineView"" and was finally able to figure out what a ""NSTableView"" was actually wanting from me.
 
 As always, any questions, concerns, complaints email them to binary.god@gmail.com.
-
 
