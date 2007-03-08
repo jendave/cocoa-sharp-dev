@@ -4,4 +4,4 @@ Author: mailto:l0ne@email.it
 
 Incidentally, Nib Wrap is an example of a GUI application written completely in C# and Cocoa#.
 
-The .app bundle and console .exe are available at http://traxnet.asidesoft.com/files/NibWrap.zip [41KB Source Code]. (Please note that this is a work in progress and most of the code is underdocumented and poorly written.)
+The .app bundle and console .exe are available at http://traxnet.asidesoft.com/files/NibWrap.zip (41KB Source Code). (Please note that this is a work in progress and most of the code is underdocumented and poorly written.)
