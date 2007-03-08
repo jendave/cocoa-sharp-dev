@@ -1,0 +1,9 @@
+Summary: OS X is Apple's current operating system, a program for controlling interactions between a computer, its user(s), other computers and other devices.
+
+Like all operating systems, OS X performs "housekeeping" functions. These store, move, alter and display different kinds of information. The information may be a document such as this article, an aria from La Traviata, a video or many other such. Although warehousing this information in easy-to-find places is fundamental, the (operating) system may start up more specific programs, such as a DVD viewer, to perform actions more specific to the document (e.g., "set subtitle language"). These specific programs in turn ask the system to perform the basic steps for them, such as retrieving the documents.
+
+It is sometimes difficult to draw the line between "system" programs and "user" programs. Apple "bundles" several user programs, such as a phone-book manager, with the system. Most users can think of these as "freebies" that Apple uses to sweeten the pot for users when the company releases upgrades to the core functionality. Nonetheless, third parties may supply similar programs that perform the same functions, and that run on other systems.
+
+Like most modern operating systems, OSX provides ways to present "media" -- text; still and moving images; sound -- and to connect the computer to the World Wide Web and other computers. Other such systems are Linux and Windows. 
+
+"OS X" merely indicates the tenth major incarnation of Apple's Macintosh line of operating systems. It represents a major break from previous versions of the system, in that Apple derived it from the Unix operating system. Previous Mac system versions were successive modifications to the original, 1984 software. 
