@@ -1,5 +1,5 @@
 ==Xcode Plugin and supporting files for Mono C# integration==
-#sumamry This document describes the installation, use and some of the background details of an Xcode plugin that allows the use of the Mono C# development environment.
+#summary This document describes the installation, use and some of the background details of an Xcode plugin that allows the use of the Mono C# development environment.
 
 Susan Mackay
 
