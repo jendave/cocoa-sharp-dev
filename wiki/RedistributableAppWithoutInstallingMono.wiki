@@ -1,4 +1,4 @@
-Summary: How to package up your Cocoa# / Mono app into a single .app file without requiring the end-user to install Mono.
+#summary How to package up your Cocoa# / Mono app into a single .app file without requiring the end-user to install Mono.
 
 NOTE: I did this with an SVN build of Cocoa#, and a fink (cvs'd) install of both mono and nant.  YMMV.
 
@@ -13,15 +13,17 @@ Got all the tools? Great.  Now the first thing you're going to want to do is use
 How do you use mkbundle?  Quite simply, actually:
 
 Nant:
+{{{
  <exec program="/sw/bin/mkbundle" commandline=" -o MyExec --deps ./bin/MyExec.exe" basedir="."/>
-
+}}}
 This will output the executable I mentioned above with the name "MyExec".
 
 So far, great - if you run this app now, on your development machine, it should start up just fine.  But, that's just on your machine, and if you examine what libraries the executable depends on:
 
 Command line:
+{{{
  >otool -L myExec
-
+}}}
 You'll see that you have dylib dependencies to specific locations on your hard drive.  (Including the Mono runtime which is dynamically referenced because we didn't pass the --static flag to mkbundle, natch, or whatever makes me sound more well read) 
 
 Also, you only have an executable! Not an .app file, which is really our concern, when it comes to distributing to OS X.  
@@ -29,17 +31,18 @@ Also, you only have an executable! Not an .app file, which is really our concern
 So, let's create that app file.  You can do it the long way, but I suggest you cheat and just use macpack to create the structure for you.  
 
 Nant:
+{{{
  <exec program="/sw/bin/macpack" commandline="-n MyExec -o . -a ./bin/MyExec.exe -m cocoa -r ./MyExec"/>
-
+}}}
 Put short, this will create a directory named MyExec.app, copy your assembly MyExec.exe into it ( which you can delete after this is done - macpack just demands an assembly to copy ), create the requisite support files, and also put the executable we created with mkbundle in the directory MyExec.app/Contents/Resources.  We're going to leave it there, for reasons I'll get to later.
 
 Now that we've created your folder, let's remove some of the junk we don't need:
-
+{{{
  >rm MyExec.app/Contents/Resources/MyExec.exe
  >rm MyExec.app/Contents/MacOS/MyExec
-
+}}}
 All we've done is just get rid of the old assembly that macpack needed to run, and a shell script that macpack would have used to start that executable up with the installed mono runtime.  We'll replace that with our own shell script named MyExec, which looks like this:
-
+{{{
  #!/bin/sh
  #butchered shell script from macpack
  PWD=`pwd`
@@ -52,7 +55,7 @@ All we've done is just get rid of the old assembly that macpack needed to run, a
  export MONO_GDIP_USE_COCOA_BACKEND=1
  cd "$APP_PATH/Contents/Resources"
  "./$APP_NAME"
-
+}}}
 As you can infer from the comments, this is just a hacked up version of the macpack shell script.  Because I'm a lazy bastard. All it does is just do a standard execution of your app from the Resources directory.  The reason we're leaving your executable in that directory is because (in my usage) you couldn't use the standard method of getting the codebase from the executing assembly to figure out what directory you're in, and then traversing back to the Resources directory to get any config / resource files your app needs.  So we're going to leave the entire "real" app in the Resources directory, and just use this shell script as a launcher.
 
 Okay, so now we've got this pretty app file with your application in it, and if you dare to, you can double click on it and it will startup all Mac OS X'y ( alliteration! or something! ).  Problem:  there's no way it will run on any user's computer who doesn't have the libraries installed ( like the mono runtime library, glib, gmodule, gthread, etc. ) in the same paths as those output by otool.  How do we fix that?
@@ -65,7 +68,7 @@ Less short answer that will make you wish you just used the short answer:  Get t
 Please note that when I say @executable_path, I LITERALLY MEAN @executable_path, and am not suddenly using an @ symbol to refer to something you yourself must change.
 
 Short answer nant task:
-
+{{{
 	<target name="recursivelink">
 		<property name="curfile" value="MyExec.app/Contents/Resources/MyExec"/>
 		<property name="required_lib_prefix" value="/"/>
@@ -169,7 +172,7 @@ Short answer nant task:
           </code>
       </script>
 	</target>
-
+}}}
 Just to reiterate, this will recursively copy all dylib (dynamic library) files that your application depends on (the dependencies of your dependencies, so to speak) to YourApp.app/Contents/Frameworks, and relink both your executable AND the dependent libraries to use a linking path relative to the location of the instantiating executing code.  The script maintains a registry of libs it /shouldn't/ link, which you can add to as necessary - you'll notice I commented out libiconv, because I'd rather distribute the version that Mono was linked against than rely on the user's machine.  
 
 NOTE: Special note for people that installed Mono from the OS X DMG off the Mono site.  While I was making this script, I originally ran into a huge amount of problems reconciling the libs that fink had installed (in /sw/lib ) against the libs that were in the DMG installer ( in /Library/Frameworks/Mono.framework/Libraries ) - lots of complaints when executing about mismatched versions of libraries. I fixed it by just removing the Mono installed from DMG, and running sudo fink install mono.  Nothing feels better than avoiding dependency hell. 
@@ -177,14 +180,16 @@ NOTE: Special note for people that installed Mono from the OS X DMG off the Mono
 Once you've used the above task to copy over the dependent lib files, you have ONE LAST thing to do, and that is copy over all dynamically loaded assemblies into MyExec.app/Contents/Resources .  You can't use mkbundle to include these assemblies, because Mono will be checking the filesystem for their existence.  And, if you're using Cocoa#, there's at least /ONE/ assembly that you MUST include in order for your application to work right: Mono.CompilerServices.SymbolWriter .  Cocoa# uses the ModuleBuilder class to emit a dynamically defined assembly, and that class dynamically loads Mono.CompilerServices.SymbolWriter - if you see a strange stacktrace from your application that mentions ModuleBuilder, chances are that your executable is not finding this assembly.  So:
 
 Nant:
+{{{
  		<copy todir="MyExec.app/Contents/Resources" overwrite="true">
 			<fileset basedir="${framework::get-assembly-directory(framework::get-target-framework())}">
 				<include name="Mono.CompilerServices.SymbolWriter*"/>
 			</fileset>
 		</copy>
-
+}}}
 And there you go! Redistributable app, ready to be deployed.    
 
 Oh, and for bonus hacker points, you can use Jb Evain's linker.exe ( http://www.mono-project.com/Linker ) to compress down the size of your dependent classlibs to just the functions that your app uses.  Including all these libs is going to put a strain on your filesize.
+
 
 
