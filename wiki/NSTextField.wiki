@@ -1,4 +1,4 @@
-#summary : Apple.AppKit.NSTextField
+#summary Apple.AppKit.NSTextField
 
 *Public Methods*
 || *Access* || *Method* || *Args* || *Return* || *Summary* ||
@@ -7,5 +7,4 @@
 ||Public||GetHashCode||None||System.Int32||Not Yet||
 ||Public||GetType||None||System.Type||Not Yet||
 ||Public||SetRow||System.IntPtr, System.Boolean||System.Void||Not Yet||
-
 
