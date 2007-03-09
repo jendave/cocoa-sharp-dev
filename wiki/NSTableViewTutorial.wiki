@@ -1,4 +1,4 @@
-#summary Simple tutorial on the use of a DataSource with an "STableView
+#summary Simple tutorial on the use of a DataSource with an TableView
 
 !Assumptions
 I will be assuming that you have read through the SimpleTutorial and know the basics of creating a Cocoa GUI and how to use Outlets and Actions.
