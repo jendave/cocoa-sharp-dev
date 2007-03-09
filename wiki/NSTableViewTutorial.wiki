@@ -1,4 +1,4 @@
-#summary Simple tutorial on the use of a ""DataSource"" with an ""NSTableView""
+#summary Simple tutorial on the use of a DataSource with an "STableView
 
 !Assumptions
 I will be assuming that you have read through the SimpleTutorial and know the basics of creating a Cocoa GUI and how to use Outlets and Actions.
@@ -163,4 +163,3 @@ Create these as normal
 I hope this helps somebody.  It took me weeks to figure out how to get this to work.  I finally found an old example on the mailing list archives that used an ""NSOutlineView"" and was finally able to figure out what a ""NSTableView"" was actually wanting from me.
 
 As always, any questions, concerns, complaints email them to binary.god@gmail.com.
-
