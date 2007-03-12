@@ -393,7 +393,7 @@ This is a simple yes/no option.
 
 If this option is selected, the required compiler option will be added.
 
-.NET Version 
+====.NET Version ====
 
 This option is a bit different from all of the others in that it does not become a command line option. Rather it is used internally by the plugin to select between the mcs and gmcs compilers. 
 
