@@ -1,16 +1,16 @@
 ﻿#summary This document describes the installation, use and some of the background details of an Xcode plugin that allows the use of the Mono C# development environment.
 
-==Xcode Plugin and supporting files for Mono C# integration==
+=Xcode Plugin and supporting files for Mono C# integration=
 
 Susan Mackay
 
-==Abstract==
+=Abstract=
 
 This document describes the installation, use and some of the background details of an Xcode plugin that allows the use of the Mono C# development environment.
 
 If you just want to get the code installed and running, then please start at the "Installation" section. If you want to understand how this plugin came about and how it operates (also why it has some of the ways of doing things and limitations that it has) then please read the introductory sections.
 
-==Quick Start==
+=Quick Start=
 
 If you just want to get started, then follow these instructions. Be warned that they assume you know your way around the file system, and they do not cover the gotcha's: 
 
@@ -26,7 +26,7 @@ Starting Xcode should now show executable, library and Cocoa# New Project templa
 
 Test it out by creating a 'New Project' form the Executable template and click the 'Build and Go' button. You should see the compilation take place and then the display a variation of the classic 'Hello World' theme.
 
-==Preface ==
+=Preface =
 
 I am fairly new to the OS X environment having bought a new MacBook Pro just a few months ago. However I have been using C# (mainly within the Microsoft Visual Studio range of IDE's) since the whole ".NET" thing started and C# was first introduced. 
 
@@ -54,7 +54,7 @@ It has been said that "no work of art is ever completed - merely abandoned". Whi
 
 ^1^ Insert your usual legal disclaimers here about fitness for purpose etc., that usage is purely at your own risk, and that I am not responsible for anything!
 
-==Approach ==
+=Approach =
 
 There appears to be a fundamental difference in the way Xcode is set up and they way Mono/C# programs are created. Xcode seems to want to follow the 'traditional' scheme where there is a fairly 'one-to-one' line from the original source code (in the case of code generated form Yacc etc.), through the headers and code file to an object file. It is only when the object files are brought together by the linker is there a significant combining of the files into a unified 'whole'. 
 
@@ -68,7 +68,7 @@ The end result is a plugin that works in the expected 'style' of Xcode, that gen
 
 ^2^ This is demonstrated by the 'compile' code used in this plugin is called once for each source file, but the 'link' code is called once with all of the files available. I tried placing all of the source files in the 'link' phase, but this is not intuitive and seems to go against the way Xcode operates.
 
-==Scope and Exclusions ==
+=Scope and Exclusions =
 
 The basic intension of the plugin is to allow the programmer to do anything that could be done in the terminal with a suitable editor and the (g)mcs and mono commands. I think that I have achieved much of this but certainly not all. 
 
@@ -86,7 +86,7 @@ It is assumed that you name a suitable Mono installation already in place (or at
 
 ^3^ I'm originally from New Zealand and I now live in Australia. In my part of the world, we use the "English" spellings for words that often end up with a 'z' (pronounced "zed" by the way!!!) in American spelling. Except where the American spelling is required by Xcode or something else, I have used the spellings that I know and love so well. As always, if you don't like it, then see the "Customisation" section to change it (talk about a recursive footnote!)
 
-==Distribution Files ==
+=Distribution Files =
 
 The .zip file contains all of the sources and ancillary files needed to build the plugin (under Xcode of course) but you will need to copy the files to their 'final resting place' yourself. (If anyone knows how to create an installer, then please do)! 
 
@@ -96,7 +96,7 @@ The '{{{CSharpPlugin.pbplugin}}}' file is a universal binary, but it has only be
 
 ^4^ I used Xcode V2.4 for this work. I see in some of the header files that I have incorporated, that there are conditional compilation markers set for V2.2 and below - I have not tried any of these so you are on your own.
 
-==Installation ==
+=Installation =
 
 There are two ways that the plugin can be installed: 
 
@@ -113,13 +113,13 @@ The first thing to do is to expand the .zip file. The easy way is to double-clic
 
 ^5^ If you are not sure what the "~/"means at the start of that directory path, then 1) perhaps you should leave this alone for now, 2) you should get a good book on Unix (perhaps as it relates to OS X) and 3) it means your own personal user directory and changes depending on your account name
 
-===The Plugin Executable===
+==The Plugin Executable==
 
 The plugin makes use of additional code to provide some of the functionality^6^. When Xcode starts up, it looks for any plugin code (identified by the "{{{.pbplugin}}}" file type) in the "{{{Plug-ins}}}" directory. Therefore: copy the "{{{build/Release/CSharpPlugin.pbplugin}}}" file to "{{{Plug-ins/CSharpPlugin.pbplugin}}}". 
 
 ^6^ Xcode can be extended without this, but only in a very restricted way in certain areas Despite the file type, this file contains executable code file which (according to my understanding) is a universal binary. It also contains a number of other resource files that Xcode will read in that define the language and how it should handle C# files.
 
-===Project Templates===
+==Project Templates==
 
 The easiest way to set up the Xcode environment to handle C#/mono is to create a new project based on either the executable or the library project template. These templates are found in the "{{{Project Templates}}}" directory. 
 
@@ -129,7 +129,7 @@ We will add an entry to this list named "C Sharp" with 'Executable' and 'Library
 
 Drag the source "{{{Project Templates/C Sharp}}}" directory into the "{{{Project Templates}}}" destination directory (see the waring above: this will replace any previous 'C Sharp' folder and its contents, but we want that in this case).
 
-===Target Templates===
+==Target Templates==
 
 Within Xcode, Targets play a key role in determining how code files are handled, what products are built and which processes are used throughout. 
 
@@ -139,13 +139,13 @@ The two target definition template files are distributed in the "{{{Target Templ
 
 Drag the "{{{Target Templates/C Sharp}}}" source directory into the "{{{Target Templates}}}" destination directory. This will bring across the two "{{{.trgttmpl}}}" files.
 
-===File Template===
+==File Template==
 
 So far we have installed the code that does all of the work in the background, the project templates for when we create a new project and the target templates for when we add a new template to an existing project. The last step is to install the template used when we want to add a new C# source file to a project. 
 
 The source directory "{{{File Templates/C Sharp.pbfiletemplate}}}" must be dragged to the destination directory "{{{File Templates"}}}. Despite the fact that the directory has a file type, it really is just a directory. However the file type helps to tell Xcode that it should expect, not only a template of the new file, but a '.plist' file to tell it about the file.
 
-===Testing the installation===
+==Testing the installation==
 
 With the above file transfers, everything is in place for Xcode to start using the plugin. 
 
@@ -203,7 +203,7 @@ At this point, you can assume that everything has been installed correctly and i
 
 ^7^ Note the sarcasm in this statement!
 
-==Using the CSharp Plugin ==
+=Using the CSharp Plugin =
 
 Please see the 'Testing the Installation' section above for a simple demonstration of how to create a stand-alone executable assembly, and an application with both a library as well as an executable assembly. 
 
@@ -211,7 +211,7 @@ Both of these are very simple cases, involving only a single file in each assemb
 
 
 
-===Passing Options To The Compiler===
+==Passing Options To The Compiler==
 
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_9.jpg
 
@@ -235,7 +235,7 @@ The following subsections list all of the available options using the names as t
 
 
 
-====Other CSharp Flags ====
+===Other CSharp Flags ===
 
 Not all command line options are made available through the other options listed below. Typically these are the ones that are used to debug the mono compiler itself and are therefore not of real interest to programmers who are simply using the compiler. 
 
@@ -247,7 +247,7 @@ Whatever you enter as values for this option are placed directly into the comman
 
 
 
-====Add Modules ====
+===Add Modules ===
 
 This option allows you to specify additional modules that are to be included into the assembly. 
 
@@ -255,7 +255,7 @@ While the command line option lets you use the option once followed by a list of
 
 
 
-====Delay Signing ====
+===Delay Signing ===
 
 This is a simple yes/no option. 
 
@@ -263,25 +263,25 @@ To avoid cluttering up the command line passed to the compiler, the plugin uses 
 
 
 
-====Extract Documentation To ====
+===Extract Documentation To ===
 
 A single file path value can be entered against this option as the name of the file to be created with the XML-formatted documentation drawn from the C# documentation comments.^8^
 
 ^8^ The C# Plugin 'knows' about the documentation comment introducer of "///" but it has no idea how to handle this within the editor. It is not treated as a macro and expanded according to the location as it is within Visual Studio.
 
-====Specify Key File ====
+===Specify Key File ===
 
 This option allows the entry of a single file path value as the name of an existing 'strong key pair' (.snk) file. 
 
 
 
-====Specify Key Container ====
+===Specify Key Container ===
 
 This option is very similar in the way it operates to the 'Specify Key File' option above, except that it refers to a container rather than a full key pair. 
 
 
 
-====Library Paths ====
+===Library Paths ===
 
 The mono compiler has certain built-in file paths it uses to search for library files. This option allows you to add multiple additional file paths to this list. 
 
@@ -291,13 +291,13 @@ Watch out for file paths that contain spaces and double quotes around any that d
 
 
 
-====Main Class ====
+===Main Class ===
 
 This option allows you to specify the name of a single class that is to be used if there are multiple 'Main' methods in the source files. 
 
 
 
-====Disable Default Configuration ====
+===Disable Default Configuration ===
 
 This is a simple yes/no option where you click on the box to select it. 
 
@@ -305,19 +305,19 @@ To avoid cluttering up the command line passed to the compiler, the plugin uses 
 
 
 
-====Ignore Specified Warnings ====
+===Ignore Specified Warnings ===
 
 This option allows you to enter the numbers of one or more warnings that can be generated by the compiler. 
 
 Separate each number by a space if you are editing the value 'in line', or enter one number on each row in the drop-down sheet.
 
-====Use Pkg-Config ====
+===Use Pkg-Config ===
 
 You can enter the names of one or more packages to which the compiler will apply the 'pkg-config --libs' utility and use the resulting information. No special provision is made by the plugin for the 'dotnet' option that can be specified to the compiler; you will need to add this value yourself with any other package names. The compiler will 'know what to do'. 
 
 
 
-====Embed Resource File(s) ====
+===Embed Resource File(s) ===
 
 This option allows you to enter one or more file paths to existing resource files that will be added into the assembly. 
 
@@ -327,7 +327,7 @@ If want to specify an alternate name that will be used to reference the resource
 
 
 
-====Referenced Assemblies ====
+===Referenced Assemblies ===
 
 The value(s) specified in this option tell the compiler which assemblies must be included in the compilation. Typically these are assemblies in the GAC and are referenced by their name (e.g. 'System.Windows.Forms'). 
 
@@ -335,7 +335,7 @@ While it is possible to use this option, library assemblies that you have create
 
 
 
-====Use Checked Expressions ====
+===Use Checked Expressions ===
 
 This is a simple yes/no option. 
 
@@ -349,7 +349,7 @@ If this option is selected, the required compiler option will be added.
 
 
 
-====Perform Optimisations ====
+===Perform Optimisations ===
 
 This is a simple yes/no option. 
 
@@ -363,7 +363,7 @@ If this option is selected, the required compiler option will be added.
 
 
 
-====Warning Level ====
+===Warning Level ===
 
 This option allows you to select from a pre-defined set of warning level values that range from 0 to 4. 
 
@@ -371,7 +371,7 @@ To select a value, click anywhere in the value part of this option to bring up a
 
 
 
-====Code Page ====
+===Code Page ===
 
 This option allows you to select from a pre-defined set of values. 
 
@@ -379,7 +379,7 @@ Note that this option sets the code page for all source files used in the compil
 
 
 
-====Define Symbols ====
+===Define Symbols ===
 
 This option allows you to define one or more symbols that can be used by all of the source files for conditional compilations either by using the '#if/#else/#endif' preprocessor directives and the Conditional attribute. 
 
@@ -387,13 +387,13 @@ Multiple symbols can be defined, one on each line in the drop-down sheet, or sep
 
 
 
-====Allow Unsafe Code ====
+===Allow Unsafe Code ===
 
 This is a simple yes/no option. 
 
 If this option is selected, the required compiler option will be added.
 
-====.NET Version ====
+===.NET Version ===
 
 This option is a bit different from all of the others in that it does not become a command line option. Rather it is used internally by the plugin to select between the mcs and gmcs compilers. 
 
@@ -403,7 +403,7 @@ Selecting V1 uses the mcs compiler and links the created assembly against the V1
 
 
 
-====Specify Language ====
+===Specify Language ===
 
 This option allows you to select from a pre-defined set of values. 
 
@@ -411,13 +411,13 @@ Note that this option sets the code page for all source files used in the compil
 
 
 
-====TARGET_TYPE ====
+===TARGET_TYPE ===
 
 This option lies a bit outside the others and, in general, should not be altered. It is initially set to either 'exe' or 'library' depending on the type of the assembly that you are creating. 
 
 If you need to change this (to either 'winexe' or 'module' which are the other acceptable values), then simply edit the option value directly. Note that there is no 'set of values' available to you to select from.
 
-==Using the Plugin ==
+=Using the Plugin =
 
 If you have run through the "Testing the Installation" section, you will have already seen how to create a project with a library and an executable assembly. However that section skipped over a number of details and left a bit unsaid. 
 
@@ -425,7 +425,7 @@ You can skip this section if you think you have enough to do what you want to wi
 
 
 
-===Creating an Executable Project ===
+==Creating an Executable Project ==
 
 This is probably the most common starting point in working with C#/Mono within the Xcode environment. 
 
@@ -441,7 +441,7 @@ I have created a new project called "DemoExe" and expanded the relevant items in
 
 
 
-====Source files ====
+===Source files ===
 
 A trivial source file is included that provides a basic structure for your main class. 
 
@@ -461,7 +461,7 @@ Every executable needs a 'Main" method and one is provided in the template. The 
 
 You are expected to edit the existing source file as well as create/insert other source files as required.
 
-====Products ====
+===Products ===
 
 The project template creates a simple product representing a placeholder for the executable assembly that will be created by the default target (see below). This will initially be shown in red as the file it represents does not exist until after you have successfully built the target. 
 
@@ -469,7 +469,7 @@ In general, the items listed in the Products group take care of themselves. They
 
 
 
-====Targets ====
+===Targets ===
 
 A default target is created with the same name as (you guessed it) the project. 
 
@@ -486,7 +486,7 @@ You can add additional targets via the normal Xcode methods. The plugin provides
 
 
 
-====Associating Targets ====
+===Associating Targets ===
 
 By default, adding a library target to a project does not associate the library with any pre-existing targets. In particular, if you make a change to a source file that contributes to a library assembly, the build process will update the library assembly, but not any other target that may logically depend on it. 
 
@@ -512,7 +512,7 @@ In general, you will always require the second type of linkage described above, 
 
 
 
-====Executables ====
+===Executables ===
 
 Products tell Xcode what is being created in a build, targets tell Xcode how to build the products, and Executables tell Xcode how to run what is built. 
 
@@ -532,7 +532,7 @@ Unfortunately, the 'Executables' generated by Xcode when you add a target do not
 
 Aside: The Executable objects are actually stored in each users profile file that is stored within the '.xcodeproj' file (which is actually an opaque directory, much line the '.app' file). A suitable default user profile is included in the 'Executable' project template, but it as been 'hacked' to create the appropriate Executable object. See the 'Customisation' section for more information.
 
-===Creating A Library Project. ===
+==Creating A Library Project. ==
 
 Basically, do everything specified in the 'Creating An Executable Project' except you start with the 'C Sharp -Library' project template. Therefore, what follows describes the differences between these types of projects rather than going over the same ground as above. 
 
@@ -552,7 +552,7 @@ Once you have this, go into the Project->Set Active Executable menu path and sel
 
 All-in-all, unless you only want to create a library assembly, it is probably easier to start with an executable library and then add the library targets to that - even if this is perhaps a little 'backwards' to the primary objective of creating a library and a stub assembly just to test it out.
 
-===Adding Targets ===
+==Adding Targets ==
 
 I think that this has really been covered in the above sections on creating projects. 
 
@@ -562,13 +562,13 @@ However, please read the comments in the "Creating a Library Project" about the 
 
 
 
-===Adding C# Source Files ===
+==Adding C# Source Files ==
 
 You can add a file based on the C# file template to any project. However, I don't recommend trying to mix C# and other source files within a project. I have not tried this out, but the plugin makes an assumption that a'llfiles listed in the 'Compileâ¦' and 'Linkâ¦' phases need to be processed by the (g)mcs compiler. I doubt if the compiler would be happy with non-C# source files! 
 
 
 
-==Customisation ==
+=Customisation =
 
 This section talks about how the plugin is constructed, the various parts of it, and where you should look if you want to start changing things. 
 
@@ -576,7 +576,7 @@ I should be clear about this: I want people to take what I have and build on it.
 
 
 
-===Template Files ===
+==Template Files ==
 
 All of the files described in this section, are resource files that are included in the plugin 'application' file. 
 
@@ -596,7 +596,7 @@ All object have three basic values:
 
 
 
-====Executable.trgttmpl and Library.trgttmpl ====
+===Executable.trgttmpl and Library.trgttmpl ===
 
 Xcode's understanding of a plugin begins with the 'Target Template', and this plugin has two: one for the executable assembly target and the other for a library assembly target. The Executable file is as follows: 
 {{{
@@ -631,7 +631,7 @@ You will notice that there is no 'identifier' in this file; rather there is a 'P
 
 
 
-====CSharp.pbprodspec ====
+===CSharp.pbprodspec ===
 
 This file contains two 'product specification' object definitions. The following is the one related to the 'executable' product: 
 {{{
@@ -671,7 +671,7 @@ The 'FULL_PRODUCT_NAME' item sets the name of the product. In this case it is th
 
 The main item in this definition is 'PackageTypes' which links to the package definition object described next.
 
-====CSharp.pbpackspec ====
+===CSharp.pbpackspec ===
 
 This file contains the package specifications for both the executable and library assemblies. The executable definition follows: 
 {{{
@@ -700,7 +700,7 @@ does not appear to do much.
 
 On the other hand, the 'ProductReference' part is very important. 'FileType' references the file type (see CSharp.pbfilespec later) object that tells Xcode the type of file that is created. I'm not sure if the 'Name' entry here, or the 'FULL_PRODUCT_NAME' item in the product specification actually sets the product name, but both have the same values here and it gets set to what it should be!
 
-====CSharp.pbfilespec ====
+===CSharp.pbfilespec ===
 
 This file defines the types of files that are used within the plugin. In this case there are 3:
 
@@ -748,7 +748,7 @@ The various items are all fairly self-explanatory. The 'ChangesCauseDependencyGr
 
 ^9^ It's actually defined in one of the definition files that Xcode reads in as it starts up form the system library.
 
-====CSharp.pblanspec ====
+===CSharp.pblanspec ===
 
 This definition file is used by the editor to allow syntax colouring and other editor-level operations. 
 
@@ -797,7 +797,7 @@ The beginning of the file is as follows:
 }}}
 I believe that, if you understood what the method definitions should be, that you could write a suitable class definition and reference it in the 'SourceScannerClassName' item and so improve the integration of the language with the editor. I'm guessing that this would overcome the issue the plugin currently has in (for example) not knowing about property accessors - the editor simply shows that the cursor is in the class definition, whereas it can understand a method definition enough to reference its name.
 
-====Mono.xcspec ====
+===Mono.xcspec ===
 
 This definition file defines an additional 'architecture' that can be referenced within Xcode. In this case it defines the 'mono' architecture: 
 {{{
@@ -818,7 +818,7 @@ I have no idea what the 'SortNumber' does, but it appears in some other architec
 
 Architectures seem to come into their own when a source file can be compiled for several different hardware devices. If multiple architectures are specified for a target, then the compiler is called once for each architecture for each source file, and the resulting object code is supposed to be placed into part of the internal directory tree for that architecture. This does not apply in this situation as Mono compiles the C# into a platform independent form. I suppose if you tried to mix C# and other languages together it may be needed, but how you would get that to work in beyond what I want to think about right now!
 
-====CSharp.xcbuildrules ====
+===CSharp.xcbuildrules ===
 
 This definition file links a source file with its compiler: 
 {{{
@@ -839,7 +839,7 @@ definition), it will use this definition to select the
 
 'com.mono.compilers.csharp.gmcs' compiler definition.
 
-====CSharp.pbcompspec ====
+===CSharp.pbcompspec ===
 
 This definition file tells Xcode how to compile C# source files. The start of it is as follows: 
 {{{
@@ -924,7 +924,7 @@ The 'CommandLineArgs' item seems to have several effects. Firstly, if you don't 
 
 Other object definitions seem to allow options to be specified, but I have not been able to find where these appear within the user interface within Xcode. Only the. pbcompspec options appear in the Target -Build inspector.
 
-====Csharp.pblinkspec ====
+===Csharp.pblinkspec ===
 
 This file defines the linker to be used. Xcode locates the linker by calling the 'linkerSpecificationForObjectFilesInTargetBuildContext' method in the MonoProductSpecificationCS.m class. It returns a reference to the appropriate identifier; in this situation the reference is to this definition: 
 {{{
@@ -967,7 +967,7 @@ dictionary - I can't see where Xcode uses this, but it is probably just my lack 
 
 As with the compiler specification file, the 'ExecPath' value is ignored by the class referenced in the 'Class' item which is called once to link the files and is passed all of the input files as well as all "library" files in the "Link Binary With Libraries" build phase.
 
-====CSharp.pbRTSspec and CSharp.pbbsetspec ====
+===CSharp.pbRTSspec and CSharp.pbbsetspec ===
 
 I've included these files because they were in one of the other plugin's that I based this one on. At the time I had no idea what they did - and still don't! If I recall, the .pbbsetspec object was referenced within a method in one of the classes that I eventually removed as it never appeared to be called and nothing seemed to break when I removed it. 
 
@@ -975,7 +975,7 @@ Also, I think the .pbRTSspec definition is somehow supposed to tell Xcode how to
 
 
 
-====com.mono.compilers.csharp.strings (English) ====
+===com.mono.compilers.csharp.strings (English) ===
 
 This file provides more readable names and descriptions for the various options as they appear in the Target Inspector's Build tab. The format is fairly obvious (I hope). 
 
@@ -983,7 +983,7 @@ Looking at the similar files used by Xcode itself, there are additional capabili
 
 Many of the option comments are taken form, or heavily derived from, the equivalent compiler command-line option description in the mcs 'man' page or the 'man --help' output. I've modified some of the descriptions to make then suitable for the Xcode option context, or to clarify the way the option is used within this plugin (e.g. no file-specific options).
 
-===Objective-C Files ===
+==Objective-C Files ==
 
 Let me make one thing well known: I don't know Objective-C. This is the first time I've ever had anything to do with it, so whatever you see in these files is almost certainly copied (if it is any good) or crying out for improvement (my contributions). Therefore, feel free to correct anything you see. 
 
@@ -997,19 +997,19 @@ With that said, the following descriptions outline the code.
 
 ^10^ Note that this is a dependency graph, not just a dependency tree. There can be multiple output files from each node.
 
-====Xcode API ====
+===Xcode API ===
 
 There are a number of header files that are stored in this area, all of them taken directly from one or another of the plugin's this one is based on. I don't think they are all referenced (for example I don't think XCPSourceParsing.h is referenced anywhere) but I have the feeling that they may well be useful in the future. 
 
 
 
-====MonoProductSpecificationCS.m/.h ====
+===MonoProductSpecificationCS.m/.h ===
 
 The 'initializeBuildSettingsInTargetBuildContext' method is called once at the start of the dependency generation process. Therefore, if you need to initialize anything, this is the place to do it. No such initialisation is required for this plugin. 
 
 The 'linkerSpecificationForObjectFilesInTargetBuildContext' method is called to find the definition object for the linker.
 
-====MonoCompilerSpecificationCS.m/.h ====
+===MonoCompilerSpecificationCS.m/.h ===
 
 There is only a single method called in this class: 'computeDependenciesForInputFile: ofType: variant: architecture: outputDirectory: inTargetBuildContext:' which is called once for each source file in the target "Compile Sources" group. 
 
@@ -1021,7 +1021,7 @@ As the command is being created, it looks to see the value of the CS_DOTNETVERSI
 
 
 
-====MonoLinkerSpecificationCS.m/.h ====
+===MonoLinkerSpecificationCS.m/.h ===
 
 The main method of this class is 'computeDependenciesForFilePaths: outputPath: inTargetBuildContext:' and it is called only once. It is passed all of the output form the compiler invocations (in effect none in this instance as each source file does not create a separate object file), and all of the library files in the target 'Link Binary with Libraries' build phase. 
 
@@ -1031,7 +1031,7 @@ It also adds in a couple of other command-line elements: namely the '-target' an
 
 
 
-====MonoOutputParser.m/.h ====
+===MonoOutputParser.m/.h ===
 
 This code is hung together by small bits of string at the best of times. It appears to be called for each line of output from the compiler, and I have managed to get some (pseudo-)regular^11^ expressions going which pick out the 'error' and 'warning' lines emitted. 
 
