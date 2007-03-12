@@ -50,9 +50,9 @@ There is a log of great stuff here – if you can reverse-engineer and/or unders
 
 I have also used little bits and pieces of code and ideas that I’ve found in various news groups and other areas of the Internet. If you think that I’ve used a bit or your code and I’ve not acknowledged you, then firstly my apologies, and secondly I acknowledge your contribution now.
 
-It has been said that “no work of art is ever completed – merely abandoned”. While I don’t feel that I have ‘abandoned’ this project, I do feel that it has reached a stage where it is useable and should be made available. I have supplied all of the source files needed to completely rebuild the plugin, as well as the ancillary files needed to bring C# to Xcode. Please feel free to extend this work, and/or let me know of what works (and what doesn’t – I make no claim that it is bug free or will work for any particular situation<sup>1</sup>) so that we can all make it better. In particular I am interested in hearing from anyone about how to better parse the source code within Xcode to improve the “Intellisense”-like operation.
+It has been said that “no work of art is ever completed – merely abandoned”. While I don’t feel that I have ‘abandoned’ this project, I do feel that it has reached a stage where it is useable and should be made available. I have supplied all of the source files needed to completely rebuild the plugin, as well as the ancillary files needed to bring C# to Xcode. Please feel free to extend this work, and/or let me know of what works (and what doesn’t – I make no claim that it is bug free or will work for any particular situation^1^) so that we can all make it better. In particular I am interested in hearing from anyone about how to better parse the source code within Xcode to improve the “Intellisense”-like operation.
 
-<sup>1 </sup>Insert your usual legal disclaimers here about fitness for purpose etc., that usage is purely at your own risk, and that I am not responsible for anything!
+^1^ Insert your usual legal disclaimers here about fitness for purpose etc., that usage is purely at your own risk, and that I am not responsible for anything!
 
 ==Approach ==
 
@@ -60,13 +60,13 @@ There appears to be a fundamental difference in the way Xcode is set up and they
 
 On the other hand, the C# compiler requires that all source files are brought together right from the start. This allows such constructs as partial classes, which can separate parts of a class definition into a number of files, but the compiler seems the whole definition at once. It also eliminates the “forward reference” issues between classes.
 
-Xcode has ‘compile’ and ‘link’ phases, where the ‘compile’ phase operates on a single file at a time, and the ‘link’ phase, which expects to bring together, all of the object files generated during the compile phase, with any libraries<sup>2</sup>. 
+Xcode has ‘compile’ and ‘link’ phases, where the ‘compile’ phase operates on a single file at a time, and the ‘link’ phase, which expects to bring together, all of the object files generated during the compile phase, with any libraries^2^. 
 
 After a couple of attempts, (I’ll spare you the details, but all involved strange goings-on in the background that stopped something else from working properly!) I realised that it was possible to recognise when the first source file was being processed and so build the basis of the compile command. Each subsequent source file simply built on that basic command. However the command was not executed at all. In the link phase, the same command was extended further to include all library assemblies, thus completing the required command.
 
 The end result is a plugin that works in the expected ‘style’ of Xcode, that generates the required Mono command line, can report errors back to the source line (Mono reports to the source column as well, but Xcode does not appear to handle this), can create library and executable assemblies within the same (or separate) project(s), and can execute the result (albeit without the debugger).
 
-<sup>2 </sup>This is demonstrated by the ‘compile’ code used in this plugin is called once for each source file, but the ‘link’ code is called once with all of the files available. I tried placing all of the source files in the ‘link’ phase, but this is not intuitive and seems to go against the way Xcode operates.
+^2^ This is demonstrated by the ‘compile’ code used in this plugin is called once for each source file, but the ‘link’ code is called once with all of the files available. I tried placing all of the source files in the ‘link’ phase, but this is not intuitive and seems to go against the way Xcode operates.
 
 ==Scope and Exclusions ==
 
@@ -82,9 +82,9 @@ Another “odd” option is {{{-target:}}} in that this is generally pre-defined
 
 The default ‘Executables’ definition created for a new executable project will run the generated executable assembly, even if other library targets are added to the project. Unfortunately, the opposite is not true: if you create a new library project and then add an executable target, the “Executables” entry that is created will not run the program properly (it assumes the “.exe” is directly executable and does not require the Mono environment). You can correct this my creating a ‘Custom Executable’. This all means that, if you want to create library and include a small ‘test’ program, then you should start with an ‘executable’ project and add the library; it means less for you to do and less to go wrong.
 
-It is assumed that you name a suitable Mono installation already in place (or at least you will have before you try to compile anything!). Also it is assumed that the (g)mcs compilers and the mono runtime are in "{{{/usr/bin}}}". See the “Customisation”<sup>3 </sup>section if this is not the case.
+It is assumed that you name a suitable Mono installation already in place (or at least you will have before you try to compile anything!). Also it is assumed that the (g)mcs compilers and the mono runtime are in "{{{/usr/bin}}}". See the “Customisation”^3^ section if this is not the case.
 
-<sup>3 </sup>I’m originally from New Zealand and I now live in Australia. In my part of the world, we use the “English” spellings for words that often end up with a ‘z’ (pronounced “zed” by the way!!!) in American spelling. Except where the American spelling is required by Xcode or something else, I have used the spellings that I know and love so well. As always, if you don’t like it, then see the “Customisation” section to change it (talk about a recursive footnote!)
+^3^ I’m originally from New Zealand and I now live in Australia. In my part of the world, we use the “English” spellings for words that often end up with a ‘z’ (pronounced “zed” by the way!!!) in American spelling. Except where the American spelling is required by Xcode or something else, I have used the spellings that I know and love so well. As always, if you don’t like it, then see the “Customisation” section to change it (talk about a recursive footnote!)
 
 ==Distribution Files ==
 
@@ -92,9 +92,9 @@ The .zip file contains all of the sources and ancillary files needed to build th
 
 As distributed, it contains a copy of the project environment as it was immediately after a ‘Clean All’ and then a ‘Release Build’.
 
-The '{{{CSharpPlugin.pbplugin}}}' file is a universal binary, but it has only been tested on an Intel Macbook-Pro running OSX 10.4.7. Compiling from the sources, I can’t think of any reason why this should not run on any target environment that has Xcode on it<sup>4</sup>. 
+The '{{{CSharpPlugin.pbplugin}}}' file is a universal binary, but it has only been tested on an Intel Macbook-Pro running OSX 10.4.7. Compiling from the sources, I can’t think of any reason why this should not run on any target environment that has Xcode on it^4^. 
 
-<sup>4 </sup>I used Xcode V2.4 for this work. I see in some of the header files that I have incorporated, that there are conditional compilation markers set for V2.2 and below – I have not tried any of these so you are on your own.
+^4^ I used Xcode V2.4 for this work. I see in some of the header files that I have incorporated, that there are conditional compilation markers set for V2.2 and below – I have not tried any of these so you are on your own.
 
 ==Installation ==
 
@@ -103,7 +103,7 @@ There are two ways that the plugin can be installed:
 # For just one user This is probably the safest in that it cannot affect anyone else who may use your system, and it does not require write privileges into any system directories
 # For everyone Even this is “safe” in that it is possible to simply delete the files described below from the system library directory structure and things will be returned to “normal”.
 
-In the following, I assume that you will install the files into your personal area ("{{{~/Library/Application Support/Apple/Developer Tools/}}}")<sup>5</sup>. If you want to install the plugin for everyone, the simply use the "{{{/Library/Application Support/Apple/Developer Tools/}}}" path instead. To avoid repeating the full path names for each target file, assume that the "{{{Developer Tools}}}" is the default target location. 
+In the following, I assume that you will install the files into your personal area ("{{{~/Library/Application Support/Apple/Developer Tools/}}}")^5^. If you want to install the plugin for everyone, the simply use the "{{{/Library/Application Support/Apple/Developer Tools/}}}" path instead. To avoid repeating the full path names for each target file, assume that the "{{{Developer Tools}}}" is the default target location. 
 
 Further, I’m not going to keep telling you to create a directory if it doesn’t already exist: I assume that you will do this yourself. This particularly apples if you are installing the files into your own library tree – all of the folders should already exist in the system library tree.
 
@@ -111,13 +111,13 @@ Further, I’m not going to keep telling you to create a directory if it doesn�
 
 The first thing to do is to expand the .zip file. The easy way is to double-click on the "{{{CSharpPlugin.zip}}}" file: it will create a "<code>CSharpPlugin</code>" folder in the same directory as the .zip file. Open the folder (again by double clicking on it) and it will show a collection of files and folders. If you have a directory in which you place all of your projects, then you can copy this folder there. All references in the following instructions to where the files should be copied from are relative to this folder, wherever you have placed it. 
 
-<sup>5 </sup>If you are not sure what the “~/”means at the start of that directory path, then 1) perhaps you should leave this alone for now, 2) you should get a good book on Unix (perhaps as it relates to OS X) and 3) it means your own personal user directory and changes depending on your account name
+^5^ If you are not sure what the “~/”means at the start of that directory path, then 1) perhaps you should leave this alone for now, 2) you should get a good book on Unix (perhaps as it relates to OS X) and 3) it means your own personal user directory and changes depending on your account name
 
 ===The Plugin Executable===
 
-The plugin makes use of additional code to provide some of the functionality<sup>6</sup>. When Xcode starts up, it looks for any plugin code (identified by the "<code>.pbplugin</code>" file type) in the "<code>Plug-ins</code>" directory. Therefore: copy the "<code>build/Release/CSharpPlugin.pbplugin</code>" file to "<code>Plug-ins/CSharpPlugin.pbplugin</code>". 
+The plugin makes use of additional code to provide some of the functionality^6^. When Xcode starts up, it looks for any plugin code (identified by the "<code>.pbplugin</code>" file type) in the "<code>Plug-ins</code>" directory. Therefore: copy the "<code>build/Release/CSharpPlugin.pbplugin</code>" file to "<code>Plug-ins/CSharpPlugin.pbplugin</code>". 
 
-<sup>6 </sup>Xcode can be extended without this, but only in a very restricted way in certain areas Despite the file type, this file contains executable code file which (according to my understanding) is a universal binary. It also contains a number of other resource files that Xcode will read in that define the language and how it should handle C# files.
+^6^ Xcode can be extended without this, but only in a very restricted way in certain areas Despite the file type, this file contains executable code file which (according to my understanding) is a universal binary. It also contains a number of other resource files that Xcode will read in that define the language and how it should handle C# files.
 
 ===Project Templates===
 
@@ -1032,6 +1032,5 @@ All I can say is that it seems to work for now in that errors and warnings are r
 A LOT more could/should be done in this area.
 
 <sup>11 </sup>Some of the better known regular expression ‘operators’ didn’t seem to work with this RE engine.
-
 
 
