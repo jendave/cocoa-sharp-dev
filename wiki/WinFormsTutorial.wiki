@@ -10,21 +10,21 @@ Before we begin, we need to check the minimum system requirements:
 
 !Step 1: Get Mono
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_0.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_1.jpg
 
 Download Mono.Framework-1.1.6.dmg from the Mono website (http://www.mono-project.com/Downloads).
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_1.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_2.jpg
 
 Double click on the .dmg file to mount the disk image. A drive icon like the one above should now be on your desktop. Double click on the drive in order to see it's contents.
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_2.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_3.jpg
 
 !Step 2: Install Mono
 
 Double click on the package file. This will start an installation of Mono onto your hard drive.
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_3.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_4.jpg
 
 You need to follow the instructions and complete the installation. Once you are done, you will be ready to begin writing your first Mac Windows.Forms "Hello World" program.
 
@@ -49,7 +49,7 @@ Also be sure that you have these files with the below content. If you don't you 
 
 In this step, we will be creating a simple Message Box based program to test our installation. Start TextEdit and lets write a simple C# Windows.Forms program.
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_4.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_5.jpg
 
 This program won't win any design awards but it will create a Message Box with a text message (the ubiquitous "Hello World"), and an OK button. Make sure that when you save this file that you don't add a .txt extension to the file!
 
@@ -71,13 +71,13 @@ If this was a PC, we would be done now but since we are on the Mac, we need anot
 }}}
 This will create a Mac bundle that contains our sample and that can be launched by clicking on it in the finder.
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_5.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_6.jpg
 
 !Step 4: Hello World
 
 Clicking on the Hello App in the finder should give you the following message box.
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_6.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/WinFormsTutorial_7.jpg
 
 Clicking the OK button closes the app.
 
