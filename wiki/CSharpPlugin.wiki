@@ -451,7 +451,7 @@ The top of the file contains some comments that include the name of the name of 
 
 James Bucanek provides information in his "Beginning Xcode" book (Wrox) about the "__MyCompanyName__" item in the header comments, and how to set it. Basically it comes down to using the terminal to enter: 
 
- Defaults write com.apple.xcode PBXCustomTemplateMacroDefinitions -dict ORGANIZATIONNAME "My Company" 
+ {{{Defaults write com.apple.xcode PBXCustomTemplateMacroDefinitions -dict ORGANIZATIONNAME "My Company" }}}
 
 where you will need to put in something sensible for the "My Company" part. 
 
