@@ -153,8 +153,7 @@ Begin by starting Xcode and choosing the File->New Project options. Within the "
 
 You should now be looking at a window like the following:
 
-[[Image:CSharpPlugin_img_0.jpg|frame|none]]
-
+http://code.google.com/p/cocoa-sharp-dev/wiki/CSharpPlugin_img_0.jpg
 I've used "InstallTest" as the name of my project.
 
 As a first test, simply click the "Build and Go" button. You should see the "Build Window":
@@ -1039,4 +1038,3 @@ All I can say is that it seems to work for now in that errors and warnings are r
 A LOT more could/should be done in this area.
 
 ^11^ Some of the better known regular expression 'operators' didn't seem to work with this RE engine.
-
