@@ -44,7 +44,7 @@ Three books have helped me a lot. Firstly there is “Beginning Mac OS X Program
 
 Of course, there is also the large body of code included with Xcode itself, particularly in
 
- /System/Library/PrivateFrameworks/DevToolsCore.framework/Versions/A/Resources 
+ {{{/System/Library/PrivateFrameworks/DevToolsCore.framework/Versions/A/Resources}}}
 
 There is a log of great stuff here – if you can reverse-engineer and/or understand it. 
 
@@ -173,7 +173,7 @@ The next step is to right-click/control-click on the ‘Targets’ entry, and se
 
 [[Image:CSharpPlugin_img_3.jpg|frame|none]]
 
-Close the inspector window, and right-click/control-click on the Sources item, selecting Add->New File… form the popup menu. This time, the New File assistant should only display a top-level entry of ‘C Sharp’. Clicking (once) on this entry displays a very useful description<sup>7</sup>. Double click the ‘C Sharp’ entry, give the file a name (I’ve used ‘LibSource’) and select the targets to be ‘TestLib’ (and not ‘InstallTest’ which it defaults to). 
+Close the inspector window, and right-click/control-click on the Sources item, selecting Add->New File… form the popup menu. This time, the New File assistant should only display a top-level entry of ‘C Sharp’. Clicking (once) on this entry displays a very useful description^7^. Double click the ‘C Sharp’ entry, give the file a name (I’ve used ‘LibSource’) and select the targets to be ‘TestLib’ (and not ‘InstallTest’ which it defaults to). 
 
 Open the new source file and add in a new method like the following:
 
@@ -199,7 +199,7 @@ Make some change to the ‘LibSource.cs’ source file (say, change the text tha
 
 At this point, you can assume that everything has been installed correctly and is in full working order.
 
-<sup>7 </sup>Note the sarcasm in this statement!
+^7^ Note the sarcasm in this statement!
 
 ==Using the CSharp Plugin ==
 
@@ -263,9 +263,9 @@ To avoid cluttering up the command line passed to the compiler, the plugin uses 
 
 ====Extract Documentation To ====
 
-A single file path value can be entered against this option as the name of the file to be created with the XML-formatted documentation drawn from the C# documentation comments.<sup>8 </sup>
+A single file path value can be entered against this option as the name of the file to be created with the XML-formatted documentation drawn from the C# documentation comments.^8^
 
-<sup>8 </sup>The C# Plugin ‘knows’ about the documentation comment introducer of “///” but it has no idea how to handle this within the editor. It is not treated as a macro and expanded according to the location as it is within Visual Studio.
+^8^ The C# Plugin ‘knows’ about the documentation comment introducer of “///” but it has no idea how to handle this within the editor. It is not treated as a macro and expanded according to the location as it is within Visual Studio.
 
 ====Specify Key File ====
 
@@ -738,11 +738,11 @@ The following shows the definitions for the source file and the executable assem
          ComputerLanguage = csharp;
  },
 
-The definition of an object can operate in a semi-object-oriented manner, with one definition building on another. In this case the source definition builds on the ‘source’ definition that is built into Xcode<sup>9</sup>. 
+The definition of an object can operate in a semi-object-oriented manner, with one definition building on another. In this case the source definition builds on the ‘source’ definition that is built into Xcode^9^. 
 
 The various items are all fairly self-explanatory. The ‘ChangesCauseDependencyGraphInvalidation’ item causes the target to be rebuilt when a contributing file is modified. While not shown here, this item is also applied to the library assembly definition so any rebuilding of the assembly will cause a rebuild of other dependent assemblies.
 
-<sup>9 </sup>It’s actually defined in one of the definition files that Xcode reads in as it starts up form the system library.
+^9^ It’s actually defined in one of the definition files that Xcode reads in as it starts up form the system library.
 
 ====CSharp.pblanspec ====
 
@@ -979,13 +979,13 @@ Let me make one thing well known: I don't know Objective-C. This is the first ti
 
 I have no idea how to debug this code, especially in the context of an Xcode plugin. That is why you may well find some fopen/fprintf/fclose code commented out in some of the modules – it was the only way I knew of to find out what was going on; that and lots (and lots) of compile/link/copy/start Xcode/look at file/edit/compile…. Iterations.
 
-One concept that needs to be understood, is that the plugin code is called to build a dependency graph<sup>10 </sup>and the necessary command operations to create the output files from the input ones as necessary. The commands are not performed as the plugin operates, but may or may not be called later on if the input files are newer than any of the output files for a node in the graph. 
+One concept that needs to be understood, is that the plugin code is called to build a dependency graph^10^ and the necessary command operations to create the output files from the input ones as necessary. The commands are not performed as the plugin operates, but may or may not be called later on if the input files are newer than any of the output files for a node in the graph. 
 
 In general, the main graph building methods are passed one or more source file names and an expected output file name. From these, the code creates ‘nodes’ which are connected by ‘commands’.
 
 With that said, the following descriptions outline the code.
 
-<sup>10 </sup>Note that this is a dependency graph, not just a dependency tree. There can be multiple output files from each node.
+^10^ Note that this is a dependency graph, not just a dependency tree. There can be multiple output files from each node.
 
 ====Xcode API ====
 
@@ -1023,7 +1023,7 @@ It also adds in a couple of other command-line elements: namely the ‘-target�
 
 ====MonoOutputParser.m/.h ====
 
-This code is hung together by small bits of string at the best of times. It appears to be called for each line of output from the compiler, and I have managed to get some (pseudo-)regular<sup>11 </sup>expressions going which pick out the ‘error’ and ‘warning’ lines emitted. 
+This code is hung together by small bits of string at the best of times. It appears to be called for each line of output from the compiler, and I have managed to get some (pseudo-)regular^11^ expressions going which pick out the ‘error’ and ‘warning’ lines emitted. 
 
 Further I seem to have found how to get the line number, source file name and error message to be passed back to Xcode, but I believe that this is rather ‘fragile’ code. I really don’t know the methods I’ve called within Xcode and certainly don’t know what others exist that may do the job better.
 
@@ -1031,6 +1031,5 @@ All I can say is that it seems to work for now in that errors and warnings are r
 
 A LOT more could/should be done in this area.
 
-<sup>11 </sup>Some of the better known regular expression ‘operators’ didn’t seem to work with this RE engine.
-
+^11^ Some of the better known regular expression ‘operators’ didn’t seem to work with this RE engine.
 
