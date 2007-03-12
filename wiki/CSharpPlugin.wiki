@@ -223,9 +223,9 @@ In this example, the 'Reference Assemblies' option has been clicked and the 'Sys
 
 The descriptions all follow the same basic structure:
 
-* The (g)mcs command line option that will be used is shown in the top line
-* A description of the option is given. In many cases this is the same (or similar) text as you get form the compiler's 'man' page (plagiarism!). However I have sometimes change it to make sense in the current situation
-* The bottom line shows the environment symbol that you will need to reference if you, for example, create a custom executable for the project and fire up a shell script.
+ * The (g)mcs command line option that will be used is shown in the top line
+ * A description of the option is given. In many cases this is the same (or similar) text as you get form the compiler's 'man' page (plagiarism!). However I have sometimes change it to make sense in the current situation
+ * The bottom line shows the environment symbol that you will need to reference if you, for example, create a custom executable for the project and fire up a shell script.
 
 In general, the format and way of editing the values follows the Xcode style.
 
