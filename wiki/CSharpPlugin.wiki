@@ -190,7 +190,9 @@ Finally, you need to tell the plugin that there is a relationship between the li
 Click on the Build and Go button and you should get the following windows: and
 
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_6.jpg
+
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_7.jpg
+
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_8.jpg
 
 You have now built both a library and an executable assembly, and run the entire thing within Mono.
@@ -543,6 +545,7 @@ OK, so why not add an 'executable' target to the project, probably to act as a '
 The problem is that the default 'executable' object created by Xcode in this circumstance is inappropriate for a mono executable; and critical parts of it (namely the 'Execution path:' value) cannot be edited. You will need to create a 'Custom Executable' for the target, listing "/usr/bin/Mono" as the executable path: Once the new executable object has been created, add in the name of the executable assembly as an argument:
 
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_16.jpg
+
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_17.jpg
 
 Once you have this, go into the Project->Set Active Executable menu path and select the new object. This means that, when you click 'Build and Go' or the 'Run' buttons, the custom executable is the one that is used.
