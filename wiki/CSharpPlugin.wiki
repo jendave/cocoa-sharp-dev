@@ -14,13 +14,13 @@ If you just want to get the code installed and running, then please start at the
 
 If you just want to get started, then follow these instructions. Be warned that they assume you know your way around the file system, and they do not cover the gotcha’s: 
 
-# View the source code from http://svn.myrealbox.com/viewcvs/trunk/csharpplugin
-# Get the source code from svn://svn.myrealbox.com/source/trunk/csharpplugin
-# Compile code in XCode.
-# Copy the '<code>build/release/CSharpPlugin.pbplugin</code>' to '<code>~/Library/Application Support/Apple/Developer Tools/Plug-ins</code>'
-# Copy all files in '<code>Project Templates/C Sharp</code>' to '<code>~/Library/Application Support/Apple/Developer Tools/Project Templates/C Sharp</code>' 
-# Copy all files in '<code>File Templates</code>' to '<code>~/Library/Application Support/Apple/Developer Tools/File Templates</code>' 
-# Copy all files in '<code>Target Templates</code>' to '<code>~/Library/Application Support/Apple/Developer Tools/Target Templates/C Sharp</code>' 
+ # View the source code from http://svn.myrealbox.com/viewcvs/trunk/csharpplugin
+ # Get the source code from svn://svn.myrealbox.com/source/trunk/csharpplugin
+ # Compile code in XCode.
+ # Copy the {{{build/release/CSharpPlugin.pbplugin}}} to {{{~/Library/Application Support/Apple/Developer Tools/Plug-ins}}}
+ # Copy all files in {{{Project Templates/C Sharp}}} to {{{~/Library/Application Support/Apple/Developer Tools/Project Templates/C Sharp}}} 
+ # Copy all files in {{{File Templates}}} to {{{~/Library/Application Support/Apple/Developer Tools/File Templates}}} 
+ # Copy all files in {{{Target Templates}}} to {{{~/Library/Application Support/Apple/Developer Tools/Target Templates/C Sharp}}} 
 
 Starting Xcode should now show executable, library and Cocoa# New Project templates under a ‘C Sharp’ heading, executable and library target templates also under a ‘C Sharp’ heading, and a ‘C Sharp’ new file type. 
 
@@ -78,11 +78,11 @@ It has no equivalent to the “Visual Studio” Intellisense – Xcode does have
 
 Not all of the (g)mcs compiler options are available, but mainly those are the ones that relate to testing the (g)mcs complier itself – I left those out on purpose. However there is an "Other CSharp Flags" option that you can use to put in anything you want to appear in the command line. You are responsible for formatting it correctly, but you don’t have any option about where they appear – they will always be straight after the command name and before any source/library file references, as do all of the options that are available to you.
 
-Another “odd” option is '<code>-target:</code>' in that this is generally pre-defined for you to be either '<code>-target:exe</code>' or '<code>-target:library</code>' depending on the type of the target template you have used. An option does appear called "<code>TARGET_TYPE</code>" which shows the value and this can be edited if necessary. 
+Another “odd” option is {{{-target:}}} in that this is generally pre-defined for you to be either {{{-target:exe}}} or {{{-target:library}}} depending on the type of the target template you have used. An option does appear called "{{{TARGET_TYPE}}}" which shows the value and this can be edited if necessary. 
 
 The default ‘Executables’ definition created for a new executable project will run the generated executable assembly, even if other library targets are added to the project. Unfortunately, the opposite is not true: if you create a new library project and then add an executable target, the “Executables” entry that is created will not run the program properly (it assumes the “.exe” is directly executable and does not require the Mono environment). You can correct this my creating a ‘Custom Executable’. This all means that, if you want to create library and include a small ‘test’ program, then you should start with an ‘executable’ project and add the library; it means less for you to do and less to go wrong.
 
-It is assumed that you name a suitable Mono installation already in place (or at least you will have before you try to compile anything!). Also it is assumed that the (g)mcs compilers and the mono runtime are in "<code>/usr/bin</code>". See the “Customisation”<sup>3 </sup>section if this is not the case.
+It is assumed that you name a suitable Mono installation already in place (or at least you will have before you try to compile anything!). Also it is assumed that the (g)mcs compilers and the mono runtime are in "{{{/usr/bin}}}". See the “Customisation”<sup>3 </sup>section if this is not the case.
 
 <sup>3 </sup>I’m originally from New Zealand and I now live in Australia. In my part of the world, we use the “English” spellings for words that often end up with a ‘z’ (pronounced “zed” by the way!!!) in American spelling. Except where the American spelling is required by Xcode or something else, I have used the spellings that I know and love so well. As always, if you don’t like it, then see the “Customisation” section to change it (talk about a recursive footnote!)
 
@@ -92,7 +92,7 @@ The .zip file contains all of the sources and ancillary files needed to build th
 
 As distributed, it contains a copy of the project environment as it was immediately after a ‘Clean All’ and then a ‘Release Build’.
 
-The '<code>CSharpPlugin.pbplugin</code>' file is a universal binary, but it has only been tested on an Intel Macbook-Pro running OSX 10.4.7. Compiling from the sources, I can’t think of any reason why this should not run on any target environment that has Xcode on it<sup>4</sup>. 
+The '{{{CSharpPlugin.pbplugin}}}' file is a universal binary, but it has only been tested on an Intel Macbook-Pro running OSX 10.4.7. Compiling from the sources, I can’t think of any reason why this should not run on any target environment that has Xcode on it<sup>4</sup>. 
 
 <sup>4 </sup>I used Xcode V2.4 for this work. I see in some of the header files that I have incorporated, that there are conditional compilation markers set for V2.2 and below – I have not tried any of these so you are on your own.
 
@@ -103,13 +103,13 @@ There are two ways that the plugin can be installed:
 # For just one user This is probably the safest in that it cannot affect anyone else who may use your system, and it does not require write privileges into any system directories
 # For everyone Even this is “safe” in that it is possible to simply delete the files described below from the system library directory structure and things will be returned to “normal”.
 
-In the following, I assume that you will install the files into your personal area ("<code>~/Library/Application Support/Apple/Developer Tools/</code>")<sup>5</sup>. If you want to install the plugin for everyone, the simply use the "<code>/Library/Application Support/Apple/Developer Tools/</code>" path instead. To avoid repeating the full path names for each target file, assume that the "<code>Developer Tools</code>" is the default target location. 
+In the following, I assume that you will install the files into your personal area ("{{{~/Library/Application Support/Apple/Developer Tools/}}}")<sup>5</sup>. If you want to install the plugin for everyone, the simply use the "{{{/Library/Application Support/Apple/Developer Tools/}}}" path instead. To avoid repeating the full path names for each target file, assume that the "{{{Developer Tools}}}" is the default target location. 
 
 Further, I’m not going to keep telling you to create a directory if it doesn’t already exist: I assume that you will do this yourself. This particularly apples if you are installing the files into your own library tree – all of the folders should already exist in the system library tree.
 
 '''A Word of Warning:''' if you copy a directory by dragging and dropping it into the target location '''''and''''' a directory of the same name already exists, then (after confirming the action) OS X will '''''replace''''' the existing directory and '''''any''''' files it contained with the new directory. If you are not careful, you can loose everything that was in the original directory. It is safer to create the directory if necessary, and then drag/drop the individual files
 
-The first thing to do is to expand the .zip file. The easy way is to double-click on the "<code>CSharpPlugin.zip</code>" file: it will create a "<code>CSharpPlugin</code>" folder in the same directory as the .zip file. Open the folder (again by double clicking on it) and it will show a collection of files and folders. If you have a directory in which you place all of your projects, then you can copy this folder there. All references in the following instructions to where the files should be copied from are relative to this folder, wherever you have placed it. 
+The first thing to do is to expand the .zip file. The easy way is to double-click on the "{{{CSharpPlugin.zip}}}" file: it will create a "<code>CSharpPlugin</code>" folder in the same directory as the .zip file. Open the folder (again by double clicking on it) and it will show a collection of files and folders. If you have a directory in which you place all of your projects, then you can copy this folder there. All references in the following instructions to where the files should be copied from are relative to this folder, wherever you have placed it. 
 
 <sup>5 </sup>If you are not sure what the “~/”means at the start of that directory path, then 1) perhaps you should leave this alone for now, 2) you should get a good book on Unix (perhaps as it relates to OS X) and 3) it means your own personal user directory and changes depending on your account name
 
@@ -1032,3 +1032,6 @@ All I can say is that it seems to work for now in that errors and warnings are r
 A LOT more could/should be done in this area.
 
 <sup>11 </sup>Some of the better known regular expression ‘operators’ didn’t seem to work with this RE engine.
+
+
+
