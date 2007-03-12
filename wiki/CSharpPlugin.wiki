@@ -475,8 +475,8 @@ A default target is created with the same name as (you guessed it) the project.
 
 Within the Target hierarchy are two build phases:
 
-* Compile Sources This phase contains the initial default source file 
-* Link Binary With Libraries This phase does not contain anything at this stage
+ * Compile Sources This phase contains the initial default source file 
+ * Link Binary With Libraries This phase does not contain anything at this stage
 
 As sources are added to the project, you have the option of which target(s) they are added to. Xcode will automatically place any new source files into the 'Compile Sources" phase. Use the standard Xcode techniques to place source files in the right phase of multiple targets.
 
@@ -590,9 +590,9 @@ where 'Name' is the name of the value being set; and 'value' is a Boolean value 
 
 All object have three basic values:
 
-* Identifier This is the internal name the object is referred to by other object. It is often in the form of a 'reverse DNS' name (e.g. com.mono.compilers.csharp.gmcs)
-* Name A 'human readable' name (e.g. "Mono gmcs compiler") 
-* Description A longer 'human readable' description of the object
+ * Identifier This is the internal name the object is referred to by other object. It is often in the form of a 'reverse DNS' name (e.g. com.mono.compilers.csharp.gmcs)
+ * Name A 'human readable' name (e.g. "Mono gmcs compiler") 
+ * Description A longer 'human readable' description of the object
 
 
 
@@ -704,9 +704,9 @@ On the other hand, the 'ProductReference' part is very important. 'FileType' ref
 
 This file defines the types of files that are used within the plugin. In this case there are 3:
 
-* A C# source file
-* An executable assembly
-* A library assembly
+ * A C# source file
+ * An executable assembly
+ * A library assembly
 
 The following shows the definitions for the source file and the executable assembly.
 {{{
@@ -909,10 +909,10 @@ I have listed the first few options, mainly to show some of the variations that 
 
 The 'Type' can be: 
 
-* string A single string value 
-* stringlist Multiple string values
-* bool Either YES or NO 
-* enum One of a set of possible values as specified in 'AllowedValues' 
+ * string A single string value 
+ * stringlist Multiple string values
+ * bool Either YES or NO 
+ * enum One of a set of possible values as specified in 'AllowedValues' 
 
 Depending on the 'Type', the 'DefaultValue' takes on the appropriate type. 
 
