@@ -153,7 +153,7 @@ Begin by starting Xcode and choosing the File->New Project options. Within the "
 
 You should now be looking at a window like the following:
 
-http://code.google.com/p/cocoa-sharp-dev/wiki/CSharpPlugin_img_0.jpg
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_0.jpg
 I've used "InstallTest" as the name of my project.
 
 As a first test, simply click the "Build and Go" button. You should see the "Build Window":
