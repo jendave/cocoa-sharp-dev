@@ -4,37 +4,38 @@
 I will be assuming that you have read through the SimpleTutorial and know the basics of creating a Cocoa GUI and how to use Outlets and Actions.
 
 =Project Files=
-"Download Zip Archive (18k)":http://cocoasharp.sample4.net/NSTableViewTutorial.zip
+[http://cocoasharp.sample4.net/NSTableViewTutorial.zip Download Zip Archive (18k)]
+
 Download provided courtesy of renaud.
 
 =Starting Off=
 
 ==Building the NIB==
-Create a simple GUI consisting of a ""NSTableView"" and a ""NSButton"".  You can arrange them anyway that you want.  Follow the steps in SimpleTutorial on creating actions/outlets for the various elements.
+Create a simple GUI consisting of a NSTableView and a NSButton.  You can arrange them anyway that you want.  Follow the steps in SimpleTutorial on creating actions/outlets for the various elements.
 
 We are going to add a couple of more steps to the NIB building process.
 
-        1.  Subclass and Instantiate a ""NSObject"", names this ""DataSource"".
-        1.  You will need to activate the Instances tab, and then change the view from Icons to List.  To do this look at the far right edge of the window, directly above the scroll bars.  One of the buttons will be blue, click the other button and you should now see a tree view of the items in the NIB.  It's easier to connect the ""DataSource"" to the ""NSTableView"" this way because the ""NSTableView"" is actually made up of ""NSView"" and ""NSScrollView"".  Ctrl Click and Drag from the ""NSTableView"" item to the ""DataSource"".  Connect the ""DataSource"" as both the delage and the datasource.
+        1.  Subclass and Instantiate a NSObject, names this DataSource.
+        1.  You will need to activate the Instances tab, and then change the view from Icons to List.  To do this look at the far right edge of the window, directly above the scroll bars.  One of the buttons will be blue, click the other button and you should now see a tree view of the items in the NIB.  It's easier to connect the DataSource to the NSTableView this way because the NSTableView is actually made up of NSView and NSScrollView.  Ctrl Click and Drag from the NSTableView item to the DataSource.  Connect the DataSource as both the delage and the datasource.
 
-http://img83.imageshack.us/img83/8261/datasource0jq.png
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/NSTableViewTutorial_0.png
 
-==""NSTableView Tips""==
-In this tutorial I'm using just a single column ""NSTableView"".  To adjust the number of columns you can use the Attributes panel of the Info Window, or you can double click on the ""NSTableView"" and you are now in column editing mode.  This is where you set a unique identifier for each column in the table, the column text, and some various other properties of the column.
+==NSTableView Tips==
+In this tutorial I'm using just a single column NSTableView.  To adjust the number of columns you can use the Attributes panel of the Info Window, or you can double click on the NSTableView and you are now in column editing mode.  This is where you set a unique identifier for each column in the table, the column text, and some various other properties of the column.
 
-||(i)If you plan on using a multi column table it is imperative that you set a column identifier and that it is unique to the table in question.||
+||If you plan on using a multi column table it is imperative that you set a column identifier and that it is unique to the table in question.||
 
 I'll explain why the above tip is so important once we hit the code.
 
-Anytime you add new data to the ""NSTableView"" you will need to call it's reloadData method.  This will force the table to reconstruct the data.
+Anytime you add new data to the NSTableView you will need to call it's reloadData method.  This will force the table to reconstruct the data.
 
-||(i)Call ""NSTableView"".reloadData() method when new data is added or data is updated!!||
+||Call NSTableView.reloadData() method when new data is added or data is updated!!||
 
 =The Code=
 ==Main.cs==
 Create the Main.cs file as normal, this file will normally never change unless you want something specific done.
 
-==""ApplicationController.cs""==
+==ApplicationController.cs==
 The applicationcontroller.cs is the main interface handling point. This is where all the GUI elements are connected and defined.
 
 {{{
@@ -79,19 +80,21 @@ public class ApplicationController : NSObject {
 }
 }}}
 
-The interesting stuff in this example is the ""FinishLoading"" event and the ""buttonClick"" event.  If you look close you can see that I am getting the ""DataSource"" from the ""NSTableView"" ""dataSource"" property.  This property is read-only.  In my ""DataSource"" implementation I defined an Add method so I can add items in this manner.  You can choose to add them in anyway you see fit, as long as the ""DataSource"" object can get the information.
+The interesting stuff in this example is the FinishLoading event and the buttonClick event.  If you look close you can see that I am getting the DataSource from the NSTableView dataSource property.  This property is read-only.  In my DataSource implementation I defined an Add method so I can add items in this manner.  You can choose to add them in anyway you see fit, as long as the DataSource object can get the information.
 
-==""DataSource.cs""==
+==DataSource.cs==
 
-""DataSource"" is the class that must implement at least two methods, as described in the Apple Documentation.
+DataSource is the class that must implement at least two methods, as described in the Apple Documentation.
 
-'''public int numberOfRowsInTableView( NSTableView aTableView )'''
-This method is responsible for returning the total count of items within the ""NSTableView"".
+*public int numberOfRowsInTableView( NSTableView aTableView )*
 
-'''public object objectValueForTableColumn( NSTableView aTableView, NSTableColumn aTableColumn, int rowIndex )'''
-This method is how the ""NSTableView"" knows what to display and where to display it at.  As you can see from the argument list it will tell you the ""NSTableView"" in question, which ""NSTableColumn"" it wants the data from, and finally which row.  This method is asking you to provide the data that is in the cell it's wanting.  This code should be very efficient as it is how the table is populated.
+This method is responsible for returning the total count of items within the NSTableView.
 
-||(i)If you decided to use a multi-column table then you can decide what to return based on the columns identifier by using aTableColumn.identifier to see what column the table is wanting.||
+*public object objectValueForTableColumn( NSTableView aTableView, NSTableColumn aTableColumn, int rowIndex )*
+
+This method is how the NSTableView knows what to display and where to display it at.  As you can see from the argument list it will tell you the NSTableView in question, which NSTableColumn it wants the data from, and finally which row.  This method is asking you to provide the data that is in the cell it's wanting.  This code should be very efficient as it is how the table is populated.
+
+||If you decided to use a multi-column table then you can decide what to return based on the columns identifier by using aTableColumn.identifier to see what column the table is wanting.||
 
 {{{
 using System;
@@ -153,7 +156,7 @@ public class ItemCollection : CollectionBase
 }
 }}}
 
-I created an ""ItemCollection"" in the ""DataSource.cs"" file just for ease of use.  Whenever the ""NSTableView"" method ""reloadData"" is called the table will excute the ""objectValueForTableColumn"" method to retrieve the data.  So like I said before, if you have lots of data this needs to be fast!!.
+I created an ItemCollection in the DataSource.cs file just for ease of use.  Whenever the NSTableView method reloadData is called the table will excute the objectValueForTableColumn method to retrieve the data.  So like I said before, if you have lots of data this needs to be fast!!.
 
 You can use any storage method that you want, I just used a Collection because it was quick and easy.  You can use anything at all.
 
@@ -161,6 +164,9 @@ You can use any storage method that you want, I just used a Collection because i
 Create these as normal
 
 =Finished=
-I hope this helps somebody.  It took me weeks to figure out how to get this to work.  I finally found an old example on the mailing list archives that used an ""NSOutlineView"" and was finally able to figure out what a ""NSTableView"" was actually wanting from me.
+I hope this helps somebody.  It took me weeks to figure out how to get this to work.  I finally found an old example on the mailing list archives that used an NSOutlineView and was finally able to figure out what a NSTableView was actually wanting from me.
 
 As always, any questions, concerns, complaints email them to binary.god@gmail.com.
+
+
+
