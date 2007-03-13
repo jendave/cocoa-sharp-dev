@@ -28,7 +28,7 @@ class HelloWorld {
 	1. If using TextEdit, select *Format* > *Make Plain Text*.
 	1. Copy-and-paste the above C# code.
 	1. Save the file as *helloworld.cs*.
-{{{ Make sure it's actually called *helloworld.cs* and not *helloworld.cs.txt*}}}
+ Make sure it's actually called *helloworld.cs* and not *helloworld.cs.txt*
 
 =helloworld.exe=
 Compile your C# source code to a CLR assembly.
@@ -45,9 +45,10 @@ In order to launch the application, you need to bundle the assembly and the .nib
 {{{
 macpack -m:2 -n:HelloWorld -o:. -a:helloworld.exe -r:helloworld.nib
 }}}
-If HelloWorld.app already exists you need to remove it using rm -rf HelloWorld.app.
+ If HelloWorld.app already exists you need to remove it using rm -rf HelloWorld.app.
 
 You can now double-click on *HelloWorld* in Finder to start your Hello World application= 
 
 =Next Steps=
-See the SimpleTutorial and CocoaSharpExamples.
+See the SimpleTutorial.
+
