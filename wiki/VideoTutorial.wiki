@@ -1,0 +1,27 @@
+#summary Video tutorial showing a developer making their first CocoaSharp application
+
+=1.0 Purpose=
+
+The objective of this page is for the reader to create an CocoaSharp Xcode project that allow the user to:
+
+ * Type a string in a TextField 
+ * Click a 'Count' Button 
+ * The application display the number of characters in the user-specified string
+
+=2.0 Introduction=
+
+The below video tutorial shows a developer making their first CocoaSharp application. Basic concepts are demostrated which include using the Xcode project template, editing a .nib file, control bindings, etc. A word to the C# WinForm developers. The Cocoa window library IS NOT WinForms. Right, wrong or indifferent, it is what it is. I personally am an WinForm developer as well and found it difficult at first to get use to "hard" separation from the GUI controls and the source code. However, after a short time I started to get use it.
+
+
+This little project was inspired from one of the code exercises from "Cocoa Programming for Mac OS X" by Aaron Hillegass
+
+=3.0 System Requirements=
+
+ * Mono 1.2 or later 
+ * CocoaSharp 0.9 or later (I'd recommend getting the latest source and compiling)
+ * Apple Developer Tools (Xcode and Interface Builder) installed. 
+ * [CSharpPlugin] installed
+
+=4.0 Video=
+
+http://schaveyhaus.com/cocoasharp/videos/LetterCounter.mov LetterCounter Quicktime Video (42MB)
