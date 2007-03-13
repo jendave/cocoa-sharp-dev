@@ -1,14 +1,15 @@
 #summary Simple tutorial on the use of a DataSource with an TableView
 
-!Assumptions
+=Assumptions=
 I will be assuming that you have read through the SimpleTutorial and know the basics of creating a Cocoa GUI and how to use Outlets and Actions.
 
-!Project Files
+=Project Files=
 "Download Zip Archive (18k)":http://cocoasharp.sample4.net/NSTableViewTutorial.zip
 Download provided courtesy of renaud.
 
-!Starting Off
-!!Building the NIB
+=Starting Off=
+
+==Building the NIB==
 Create a simple GUI consisting of a ""NSTableView"" and a ""NSButton"".  You can arrange them anyway that you want.  Follow the steps in SimpleTutorial on creating actions/outlets for the various elements.
 
 We are going to add a couple of more steps to the NIB building process.
@@ -18,7 +19,7 @@ We are going to add a couple of more steps to the NIB building process.
 
 http://img83.imageshack.us/img83/8261/datasource0jq.png
 
-!!""NSTableView Tips""
+==""NSTableView Tips""==
 In this tutorial I'm using just a single column ""NSTableView"".  To adjust the number of columns you can use the Attributes panel of the Info Window, or you can double click on the ""NSTableView"" and you are now in column editing mode.  This is where you set a unique identifier for each column in the table, the column text, and some various other properties of the column.
 
 ||(i)If you plan on using a multi column table it is imperative that you set a column identifier and that it is unique to the table in question.||
@@ -29,11 +30,11 @@ Anytime you add new data to the ""NSTableView"" you will need to call it's reloa
 
 ||(i)Call ""NSTableView"".reloadData() method when new data is added or data is updated!!||
 
-!The Code
-!!Main.cs
+=The Code=
+==Main.cs==
 Create the Main.cs file as normal, this file will normally never change unless you want something specific done.
 
-!!""ApplicationController.cs""
+==""ApplicationController.cs""==
 The applicationcontroller.cs is the main interface handling point. This is where all the GUI elements are connected and defined.
 
 {{{
@@ -80,7 +81,7 @@ public class ApplicationController : NSObject {
 
 The interesting stuff in this example is the ""FinishLoading"" event and the ""buttonClick"" event.  If you look close you can see that I am getting the ""DataSource"" from the ""NSTableView"" ""dataSource"" property.  This property is read-only.  In my ""DataSource"" implementation I defined an Add method so I can add items in this manner.  You can choose to add them in anyway you see fit, as long as the ""DataSource"" object can get the information.
 
-!!""DataSource.cs""
+==""DataSource.cs""==
 
 ""DataSource"" is the class that must implement at least two methods, as described in the Apple Documentation.
 
@@ -156,10 +157,10 @@ I created an ""ItemCollection"" in the ""DataSource.cs"" file just for ease of u
 
 You can use any storage method that you want, I just used a Collection because it was quick and easy.  You can use anything at all.
 
-!Helper Files
+=Helper Files=
 Create these as normal
 
-!Finished
+=Finished=
 I hope this helps somebody.  It took me weeks to figure out how to get this to work.  I finally found an old example on the mailing list archives that used an ""NSOutlineView"" and was finally able to figure out what a ""NSTableView"" was actually wanting from me.
 
 As always, any questions, concerns, complaints email them to binary.god@gmail.com.
