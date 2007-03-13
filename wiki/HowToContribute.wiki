@@ -1,33 +1,39 @@
 #summary How you can contribute to the Cocoa# project
 
-! HOWTO: Contribute to Cocoa#
+=HOWTO: Contribute to Cocoa#=
 
-!!Getting the latest Cocoa#
+==Getting the latest Cocoa#==
 
 Checkout the latest CocoaSharp from SVN: svn://svn.myrealbox.com/source/trunk/cocoa-sharp/
 
 Make sure aclocal files can be found. You might need to do:
+{{{
  export ACLOCAL_FLAGS="-I /Library/Frameworks/Mono.framework/Versions/Current/share/aclocal"
+}}}
 
 Then run:
+{{{
  ./autogen.sh --prefix /Library/Frameworks/Mono.framework/Versions/Current
-
+}}}
 Afterwards run:
+{{{
  make
+}}}
+This will build *cocoa-sharp.dll* in the *./src/Cocoa/* folder.
 
-This will build '''cocoa-sharp.dll''' in the '''./src/Cocoa/''' folder.
 
+==Contributing==
 
-!!Contributing
+Use [http://www.mono-project.com/Coding_Guidelines Mono coding style] exclusively.
 
-Use "Mono coding style":http://www.mono-project.com/Coding_Guidelines exclusively.
+Every patch needs to include a ChangeLog entry. See the CONTRIBUTING file for more info.
+Classes, methods and properties need to be documented in *./doc/en/* in order for a patch to be accepted. See below.
 
-Every patch needs to include a ""ChangeLog"" entry. See the CONTRIBUTING file for more info.
-Classes, methods and properties need to be documented in '''./doc/en/''' in order for a patch to be accepted. See below.
-
-!!!Contributing documentation
+===Contributing documentation===
 
 Do not use inline XML documentation. Cocoa# uses separate XML files for Monodoc documentation.
 
-To generate stubs for anything new you've created, go to the '''./doc''' folder and run:
+To generate stubs for anything new you've created, go to the *./doc* folder and run:
+{{{
  make update
+}}}
