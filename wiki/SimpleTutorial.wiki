@@ -33,11 +33,11 @@ The first thing to do is create a NIB file for use with the application.  A NIB 
 
 ==Actions vs. Outlets==
 
-'''Actions''':  Actions are like events.  Creating an action in a nib will allow you to assign it to any control that has event capabilities.  ''Note: You can also assign actions via code (ie "button1.action = buttonClick")''
+*Actions*:  Actions are like events.  Creating an action in a nib will allow you to assign it to any control that has event capabilities.  ''Note: You can also assign actions via code (ie "button1.action = buttonClick")''
 
 ||Actions are connected by Ctrl Clicking/Dragging from the Interface Element to the Controller Object||
 
-'''Outlets''':  Outlets are a way to tie objects in the GUI to variables in code.  If you don't have the outlet tied to anything then you can't use it.  It's a way to tell the Code what variable is pointing to what interface element.
+*Outlets*:  Outlets are a way to tie objects in the GUI to variables in code.  If you don't have the outlet tied to anything then you can't use it.  It's a way to tell the Code what variable is pointing to what interface element.
 
 ||Outlets are connected by Ctrl Clicking/Dragging from the Controller Object to the Interface Element||
 
@@ -117,7 +117,7 @@ In the above example you can see that I have exported "buttonClick:" to my local
 
 =Helper Files=
 
-I create two more files just to kinda make my life easier.  I creat a makefile and then a command file.  I create the command file so that I don't have to keep a terminal window open all the time.
+I create two more files just to kinda make my life easier.  I create a makefile and then a command file.  I create the command file so that I don't have to keep a terminal window open all the time.
 
 ==Makefile==
 {{{
@@ -129,7 +129,7 @@ test: Main.cs
 	macpack -m:2 -n:SimpleTutorial -o:. -a:SimpleTutorial.exe -r:/Library/Frameworks/Mono.framework/
 Versions/Current/lib/libCocoaSharpGlue.dylib -r:Main.nib
 }}}
-I don't know much about makefiles, but the important parts in this file are anywhere the name "SimpleTutorial" is mentioned.  Change this to whatever you want your program to be named.  The -pkg option on the mcs command makes sure that it's compiled with the cocoasharp package.  ""MacPack"" is the tool that creates the app bundles for OS X.  Make sure you include any nibs/images/icons/etc as a resource by using the -r option of macpack.
+I don't know much about makefiles, but the important parts in this file are anywhere the name "SimpleTutorial" is mentioned.  Change this to whatever you want your program to be named.  The -pkg option on the mcs command makes sure that it's compiled with the cocoasharp package.  MacPack is the tool that creates the app bundles for OS X.  Make sure you include any nibs/images/icons/etc as a resource by using the -r option of macpack.
 
 ==Command File==
 
