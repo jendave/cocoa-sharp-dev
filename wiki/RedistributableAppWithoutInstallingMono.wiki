@@ -62,9 +62,9 @@ Okay, so now we've got this pretty app file with your application in it, and if 
 
 Short answer: Use this Nant target, and replace the values in those properties at the top of it with whatever is appropriate for your app.
 Less short answer that will make you wish you just used the short answer:  Get the otool output of your executable and each of the libraries that it references.  For any libraries that aren't part of a standard OS X install, copy it into MyExec.app/Contents/Frameworks ( the Apple defined location of included libraries with an app ), then use install_name_tool dash id to change the dynamic load id of each dylib, and install_name_tool dash change to change the referenced id's of each dylib, to an executable-relative path of the form:
-
+{{{
  @executable_path/../Frameworks
-
+}}}
 Please note that when I say @executable_path, I LITERALLY MEAN @executable_path, and am not suddenly using an @ symbol to refer to something you yourself must change.
 
 Short answer nant task:
