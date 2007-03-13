@@ -13,7 +13,10 @@ If you just want to get the code installed and running, then please start at the
 =Quick Start=
 
 If you just want to get started, then follow these instructions. Be warned that they assume you know your way around the file system, and they do not cover the gotcha's: 
+ # Download the CSharpPlugin from http://cocoa-sharp-dev.googlecode.com/files/CSharpXcodePlugin.zip
+ # Unzip the file and double click on the package to start the installer. 
 
+For the more adventurous, you can install from source:
  # View the source code from http://cocoa-sharp-dev.googlecode.com/svn/trunk/csharpplugin/
  # Get the source code from svn://svn.myrealbox.com/source/trunk/csharpplugin
  # Compile code in XCode.
