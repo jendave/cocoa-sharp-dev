@@ -1,12 +1,12 @@
 #summary Software Links collected by platform, fill free to add
-!Any Platform
+=Any Platform=
 	* "Mono":http://go-mono.com
 	* "Eclipse":http://eclipse.org
 	* "Java":http://java.sun.com
 	* "C++":http://www.gotw.ca/gotw -- JustinGottschlich
 
 
-!Windows
+=Windows=
 	* "Windows Update":http://windowsupdate.microsoft.com
 	* .Net Framework 1.1 SDK
 	* "MSDN":http://msdn.com (Microsoft Developer Network)
@@ -23,8 +23,8 @@
 	* "CodeSmith 2.5":http://www.ericjsmith.net/codesmith/
 		* CodeSmith is a FREEWARE template-based code generator that can generate code for any ASCII-based language. CodeSmith templates use a syntax nearly identical to ASP.NET syntax so that creating templates should feel immediately familiar to ASP.NET developers. Check out the "overview":http://www.ericjsmith.net/codesmith/overview.aspx for more information, visit the "download":http://www.ericjsmith.net/codesmith/download.aspx page to get the latest version, or visit the "knowledge base":http://www.ericjsmith.net/codesmith/kb/ or the "support forum":http://www.ericjsmith.net/codesmith/forum/ to get your questions answered
 
-
-!Mac OS X, By "Erik Dasque":http://primates.ximian.com/~edasque/archive/2004/Mar-09.html
+=Mac OS X=
+Mac OS X, By "Erik Dasque":http://primates.ximian.com/~edasque/archive/2004/Mar-09.html
 	* "Fink":http://fink.sourceforge.net/
 	* Chat : "Proteus":http://www.indigofield.com/ - supports RendezVous, Yahoo, MSN, AOL and some other craaaaap. Will support WebKit soon for serious theming 
 	* RSS viewing: the awesome "NetNewsWire":http://ranchero.com/netnewswire/ - the best I found, I wish people would include the article body all the time in their rss feed so that I don't have to go to the web site itself and see all those ads. 
@@ -46,6 +46,6 @@
 	* And geeky tools of all geeky tools : "Geeky Tool":http://projects.tynsoe.org/en/geektool - "you know you want it!":http://projects.tynsoe.org/en/geektool/shots/shot3.jpg
 
 
-!Linux
+=Linux=
 	* "SuSE":http://www.suse.com ftp://mirror.storagetek.com/pub/systems/suse/
 	* http://www.linuxquestions.org/
