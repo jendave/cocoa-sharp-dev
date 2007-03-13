@@ -1,0 +1,24 @@
+#summary The objective of this page is for the reader to create an CocoaSharp Xcode project that mainipulates a number of Cocoa's NSOutlineView control.
+
+===System Requirements:===
+ * Mono 1.2 or later 
+ * CocoaSharp 0.9 or later 
+ * Apple Developer Tools (Xcode and Interface Builder) installed. 
+ * [CSharpPlugin] installed
+
+=1.0 Introduction=
+
+The OutlineView (i.e. TreeView) is a very, very common user interface control used to manage heirarchical data structures. Unlike the .NET WinForms where the TreeView takes care of the management of TreeNodes, Cocoa's approach places that burden on a DataSource class that you need to write. In addition, 'you' also need to write the node defintion classes. Have no worries because I fully intend to walk you through how to do all that.
+
+The application you are about write during this tutorial will be an Xml document viewer...and its feature set will go thru phases. Why? Because I'm still learning some of these Cocoa Development nuances and as I learn them I'll be updating the tutorial. The first phase of the application has the software reading an Xml file at a fixes location using C#'s System.Xml classes to fully load an OutlineView control.
+
+=2.0 Create Outline View Xcode Project=
+
+tbd.....
+
+=3.0 Setup the User Interface=
+tbd.....
+
+=4.0 Develop your custom DataSource=
+
+The OutlineView requires the object that represents its data source implement the [http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSOutlineViewDataSource_Protocol/Reference/Reference.html#//apple_ref/doc/uid/20000457 NSOutlineViewDataSource]. _(Note: Why wouldn't we start making C# interface classes for all these types of Cocoa Protocols in the CocoaSharp assembly. That way we can take advantage of our ....strongly typed programming langauge...and see these errors at compile type.)_
