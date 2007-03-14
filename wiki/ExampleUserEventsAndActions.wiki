@@ -1,0 +1,54 @@
+#summary One-sentence summary of this page.
+
+=1.0 Purpose=
+The objective of this page is for the reader to create a CocoaSharp Xcode project to demonstrate the following:
+
+ * Creating a custom View
+ * Draw a small square on the view.
+
+ * Allow the user to move the square around the custom view via mouse dragging or keyboard control
+ * Allow the user to specify the color of the square.
+In addition, this example is also being used as a test case for the CocoaSharp library in order to insure it supports such trivial software scenarios. 
+
+=2.0 Introduction=
+This example is a port of a [http://developer.apple.com/samplecode/DragItemAround/listing5.html Objective-C] example developed by Apple for their [http://developer.apple.com/documentation/Cocoa/Conceptual/CocoaViewsGuide/SubclassingNSView/chapter_5_section_4.html View Programming] reference. This example is a companion
+
+
+=3.0 System Requirements=
+ * Mono 1.2 or later 
+ * CocoaSharp 0.9 or later (I'd recommend getting the latest source and compiling)
+ * Apple Developer Tools (Xcode and Interface Builder) installed. 
+ * [CSharpPlugin] installed
+=3.0 ScreenShot=
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/ExampleUserEventsAndActions_0.png
+
+=4.0 Example Source Code History=
+[http://cocoa-sharp-dev.googlecode.com/svn/wiki/ExampleUserEventsAndActions.zip Download Source Code]
+
+
+|| *Date* || *Feature Status* || *Comments* ||
+|| 13-Mar-2007 || (Completed) Creating a custom View (Completed)Draw a small square on the view. (Completed) Allow the user to move the square around the custom view via keyboard control Allow the user to move the square around the custom view via mouse Allow the user to specify the color of the square. || Still need to get the ConvertPointFromFrom method working in the Cocoa.View class. Also need help debugging why clicking on the ColorWell crashes the application. || 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
