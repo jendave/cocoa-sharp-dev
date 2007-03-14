@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Responding to User Events and Actions
 
 =1.0 Purpose=
 The objective of this page is for the reader to create a CocoaSharp Xcode project to demonstrate the following:
@@ -28,7 +28,6 @@ http://cocoa-sharp-dev.googlecode.com/svn/wiki/ExampleUserEventsAndActions_0.png
 
 || *Date* || *Feature Status* || *Comments* ||
 || 13-Mar-2007 || (Completed) Creating a custom View (Completed)Draw a small square on the view. (Completed) Allow the user to move the square around the custom view via keyboard control Allow the user to move the square around the custom view via mouse Allow the user to specify the color of the square. || Still need to get the ConvertPointFromFrom method working in the Cocoa.View class. Also need help debugging why clicking on the ColorWell crashes the application. || 
-
 
 
 
