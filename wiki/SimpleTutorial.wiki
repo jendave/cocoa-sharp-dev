@@ -4,12 +4,6 @@
 
 For this tutorial I will assume that you have OS X, Mono 1.1.8.1, Cocoa#, and Apple's Developer Tools installed.  I'm also assuming that you're a novice at Apple Tools and using Cocoa#.  I just switched from Windows to Apple 2 months ago. I had to figure all of this out the hard way :)
 
-
-=Project Files=
-[http://cocoasharp.sample4.net/SimpleTutorial.zip Download Zip Archive (15k)]
-
-Download provided courtesy of renaud.
-
 =Starting Off=
 
 ==Building The NIB==
