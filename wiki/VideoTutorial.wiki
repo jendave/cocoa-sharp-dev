@@ -24,4 +24,4 @@ This little project was inspired from one of the code exercises from "Cocoa Prog
 
 =4.0 Video=
 
-http://cocoa-sharp-dev.googlecode.com/svn/wiki/LetterCounter.mov LetterCounter] Quicktime Video (42MB)
+[http://cocoa-sharp-dev.googlecode.com/svn/wiki/LetterCounter.mov LetterCounter] Quicktime Video (42MB)
