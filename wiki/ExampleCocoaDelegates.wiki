@@ -1,0 +1,39 @@
+#summary Cocoa Delegates Example
+=1.0 Purpose=
+The objective of this page is for the reader to create a CocoaSharp Xcode project to demonstrate the following:
+
+ * Create a text box to enter the word that the SpeechSynthesizer will speak.
+ * Create a button for starting the speech.
+ * Create a button for stopping the speech
+ * Listen to the SpeechSynthesizer delegate when it fires the DidFinishSpeaking event.
+In addition, this example is also being used as a test case for the CocoaSharp library in order to insure it supports such trivial software scenarios. 
+
+=2.0 Introduction=
+This example is a port of an example found in the book "Cocoa Programming for Mac OS X" by Aaron Hillegass.
+
+
+=3.0 System Requirements=
+ * Mono 1.2 or later 
+ * CocoaSharp 0.9 or later (I'd recommend getting the latest source and compiling)
+ * Apple Developer Tools (Xcode and Interface Builder) installed. 
+ * [CSharpPlugin] installed
+=3.0 ScreenShot=
+http://cocoa-sharp-dev.googlecode.com/svn/wiki/CocoaSharpSpeakLinkScreenShot.png
+=4.0 Example Source Code History=
+[http://cocoa-sharp-dev.googlecode.com/svn/wiki/CocoaSharpSpeakLine.zip Download Source Code]
+
+||Date ||Feature Status ||Comments ||
+||15-Mar-2007 ||(Complete) Create a text box to enter the word that the SpeechSynthesizer will speak.(Complete) Create a button for starting the speech.(Complete) Create a button for stopping the speech (Complete) Listen to the SpeechSynthesizer delegate when it fires the DidFinishSpeaking event.||Everything is pretty much complete. However to complete the example from the book, I need to enhance the CocoaSharp libraries Button class to allow for enabling and disabling of the button. ||
+
+
+
+
+
+
+
+
+
+
+ 
+
+
