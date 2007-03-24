@@ -13,7 +13,7 @@ If you just want to get the code installed and running, then please start at the
 =Quick Start=
 
 If you just want to get started, then follow these instructions. Be warned that they assume you know your way around the file system, and they do not cover the gotcha's: 
- # Download the CSharpPlugin from http://cocoa-sharp-dev.googlecode.com/files/CSharpXcodePlugin.zip
+ # Download the CSharpPlugin from http://cocoa-sharp-dev.googlecode.com/files/CSharpXcodePlugin-0.3.zip
  # Unzip the file and double click on the package to start the installer. 
 
 For the more adventurous, you can install from source:
@@ -172,11 +172,11 @@ with very similar results to those shown.
 
 If you have, then you have demonstrated that the project template and the plugin code are all working, that Xcode is talking with the gmcs compiler, and that the mono runtime can run the resulting executable assembly.
 
-The next step is to right-click/control-click on the 'Targets' entry, and select Add->New Targetâ¦ popup menu options. The 'New Target' assistant should be displayed showing a "C Sharp" top-level entry with 'Executable' and 'library' underneath it. Double-click the 'Library' entry and give it a name. An inspector window for the new target should appear. Click on the 'Build' option button at the top and the display should be like the following: I've used the name "TestLib" for this target. Note the 'Architectures' value: it should be 'mono'.
+The next step is to right-click/control-click on the 'Targets' entry, and select Add->New Targetâ€¦ popup menu options. The 'New Target' assistant should be displayed showing a "C Sharp" top-level entry with 'Executable' and 'library' underneath it. Double-click the 'Library' entry and give it a name. An inspector window for the new target should appear. Click on the 'Build' option button at the top and the display should be like the following: I've used the name "TestLib" for this target. Note the 'Architectures' value: it should be 'mono'.
 
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_3.jpg
 
-Close the inspector window, and right-click/control-click on the Sources item, selecting Add->New Fileâ¦ form the popup menu. This time, the New File assistant should only display a top-level entry of 'C Sharp'. Clicking (once) on this entry displays a very useful description^7^. Double click the 'C Sharp' entry, give the file a name (I've used 'LibSource') and select the targets to be 'TestLib' (and not 'InstallTest' which it defaults to). 
+Close the inspector window, and right-click/control-click on the Sources item, selecting Add->New Fileâ€¦ form the popup menu. This time, the New File assistant should only display a top-level entry of 'C Sharp'. Clicking (once) on this entry displays a very useful description^7^. Double click the 'C Sharp' entry, give the file a name (I've used 'LibSource') and select the targets to be 'TestLib' (and not 'InstallTest' which it defaults to). 
 
 Open the new source file and add in a new method like the following:
 
@@ -501,11 +501,11 @@ http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_12.jpg
 
 The picture above comes from the InstallTest project described in the "Testing The Installation" section. The 'TestLib' icon just under the 'InstallTest' target shows the linkage just described. This type of linkage is needed if the library interface is likely to change and the dependent assemblies must be recompiled each time. When you rebuild (in this case) 'TestLib', 'InstallTest' will also be rebuilt. Without this linkage, any change in 'TestLib' will be picked up my 'InstallTest' at runtime as the assemblies are loaded, but not before. This is a 'target-to-target' level linkage.
 
-The other type of linkage allows the building of a dependent assembly to refer to the library assembly during its construction. Drag the 'Products" icon of the target assembly into the 'Linkâ¦' phase icon of the dependent target.
+The other type of linkage allows the building of a dependent assembly to refer to the library assembly during its construction. Drag the 'Products" icon of the target assembly into the 'Linkâ€¦' phase icon of the dependent target.
 
 http://cocoa-sharp-dev.googlecode.com/svn/wiki/CSharpPlugin_img_13.jpg
 
-The above picture is the same as the one above it, but with the 'Link Binary With Libraries' group expanded to show the 'TestLib.dll' reference. This shows the additional icon in the 'Linkâ¦' phase.
+The above picture is the same as the one above it, but with the 'Link Binary With Libraries' group expanded to show the 'TestLib.dll' reference. This shows the additional icon in the 'Linkâ€¦' phase.
 
 This type of linkage includes a reference to the target assembly into the compile command of the dependent assembly, as is usually required for the depended assembly to compile correctly, resolving references to the assembly classes, methods and properties.
 
@@ -567,7 +567,7 @@ However, please read the comments in the "Creating a Library Project" about the 
 
 ==Adding C# Source Files ==
 
-You can add a file based on the C# file template to any project. However, I don't recommend trying to mix C# and other source files within a project. I have not tried this out, but the plugin makes an assumption that a'llfiles listed in the 'Compileâ¦' and 'Linkâ¦' phases need to be processed by the (g)mcs compiler. I doubt if the compiler would be happy with non-C# source files! 
+You can add a file based on the C# file template to any project. However, I don't recommend trying to mix C# and other source files within a project. I have not tried this out, but the plugin makes an assumption that a'llfiles listed in the 'Compileâ€¦' and 'Linkâ€¦' phases need to be processed by the (g)mcs compiler. I doubt if the compiler would be happy with non-C# source files! 
 
 
 
@@ -990,7 +990,7 @@ Many of the option comments are taken form, or heavily derived from, the equival
 
 Let me make one thing well known: I don't know Objective-C. This is the first time I've ever had anything to do with it, so whatever you see in these files is almost certainly copied (if it is any good) or crying out for improvement (my contributions). Therefore, feel free to correct anything you see. 
 
-I have no idea how to debug this code, especially in the context of an Xcode plugin. That is why you may well find some fopen/fprintf/fclose code commented out in some of the modules - it was the only way I knew of to find out what was going on; that and lots (and lots) of compile/link/copy/start Xcode/look at file/edit/compileâ¦. Iterations.
+I have no idea how to debug this code, especially in the context of an Xcode plugin. That is why you may well find some fopen/fprintf/fclose code commented out in some of the modules - it was the only way I knew of to find out what was going on; that and lots (and lots) of compile/link/copy/start Xcode/look at file/edit/compileâ€¦. Iterations.
 
 One concept that needs to be understood, is that the plugin code is called to build a dependency graph^10^ and the necessary command operations to create the output files from the input ones as necessary. The commands are not performed as the plugin operates, but may or may not be called later on if the input files are newer than any of the output files for a node in the graph. 
 
