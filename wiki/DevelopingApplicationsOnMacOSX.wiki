@@ -1,0 +1,5 @@
+#summary Developing Applications on MacOS X
+
+= Introduction =
+
+CocoaSharp supports for MacOS X 10.3.4 and later. CocoaSharp is currently in very early development as the release number 0.9.1 implies. However, a lot of functionality is already present and it is quite usable in its current form.
