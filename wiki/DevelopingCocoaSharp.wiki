@@ -1,0 +1,7 @@
+#summary Developing CocoaSharp applications on MacOS X
+
+= Introduction =
+
+CocoaSharp is aimed at .NET/Mono developers that want to allow their users to have a native Mac OS X application experience. CocoaSharp allows developers to call Cocoa APIs in native C# code using dot notation. Developing Cocoa# applications will be just like developing Mono application except that you are allowed to call Cocoa and Foundation APIs. 
+
+Once your application has compiled (and the bugs are fixed) it will function like any other Cocoa application.
