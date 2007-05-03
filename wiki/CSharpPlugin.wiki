@@ -18,7 +18,7 @@ If you just want to get started, then follow these instructions. Be warned that 
 
 For the more adventurous, you can install from source:
  # View the source code from http://cocoa-sharp-dev.googlecode.com/svn/trunk/csharpxcodeplugin/
- # Get the source code from svn://svn.myrealbox.com/source/trunk/csharpplugin
+ # Get the source code from https://cocoa-sharp-dev.googlecode.com/svn/trunk/csharpxcodeplugin
  # Compile code in XCode.
  # Copy the {{{build/release/CSharpPlugin.pbplugin}}} to {{{~/Library/Application Support/Apple/Developer Tools/Plug-ins}}}
  # Copy all files in {{{Project Templates/C Sharp}}} to {{{~/Library/Application Support/Apple/Developer Tools/Project Templates/C Sharp}}} 
