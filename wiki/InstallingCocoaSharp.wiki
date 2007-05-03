@@ -1,0 +1,10 @@
+#summary Installing CocoaSharp
+= Installing CocoaSharp =
+
+Visit the "download page":http://www.mono-project.com/Downloads to find the latest MacOS X package.
+
+This package installs as a framework to /Library/Framework (the same way the Java packages are installed). Symlinks are created for the executables in /usr/bin.
+
+*[ftp://www.go-mono.com/archive/1.2.3.1/macos-10-universal/0/MonoFramework-1.2.3.1_0.macos10.novell.universal.dmg MonoFramework-1.2.3.1.dmg]
+
+
